@@ -1,0 +1,32 @@
+<div class="admin-page">
+    <p-card header="Añadir categoría" subheader="Aquí podrás crear una nueva categoría">
+        <div class="p-grid p-mb-5">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-button class="p-mr-2" label="Crear" icon="pi pi-plus" styleClass="p-button-primary" routerLink="form"></p-button>
+                        <p-button label="Cancelar" icon="pi pi-arrow-circle-left" styleClass="p-button-secondary" routerLink="/categories"></p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <form>
+                    <div class="p-fluid p-formgrid p-grid">
+                        <div class="p-field p-col">
+                            <label for="name">Nombre</label>
+                            <input id="name" type="text" pInputText> 
+                        </div>
+                        <div class="p-field p-col">
+                            <label for="icon">Icono</label>
+                            <input id="icon" type="text" pInputText> 
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </p-card>
+</div>
