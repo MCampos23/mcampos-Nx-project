@@ -19,11 +19,11 @@ import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import { CategoriesService } from '@mcampos/products';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 
-
-const UX_MODULE = [InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
+const UX_MODULE = [ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
 
 const routes:Routes = [
     { 
@@ -49,7 +49,7 @@ const routes:Routes = [
 @NgModule({
     declarations: [ AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent],
     imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), UX_MODULE],
-    providers: [CategoriesService, MessageService],
+    providers: [CategoriesService, MessageService, ConfirmationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
