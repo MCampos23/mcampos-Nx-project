@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CategoriesFormComponent implements OnInit {
 
   form!: FormGroup;
-  isSubmited = false;
+  isSubmitted = false;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class CategoriesFormComponent implements OnInit {
     })  }
 
     onSubmit(){
-      this.isSubmited = true;
+      this.isSubmitted = true;
       if(this.form.invalid){
         return
       }
