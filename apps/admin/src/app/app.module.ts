@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -16,9 +17,13 @@ import {TableModule} from 'primeng/table';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ToastModule} from 'primeng/toast';
+import { CategoriesService } from '@mcampos/products';
+import { MessageService } from 'primeng/api';
 
 
-const UX_MODULE = [InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule]
+
+const UX_MODULE = [InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
 
 const routes:Routes = [
     { 
@@ -42,9 +47,9 @@ const routes:Routes = [
 ]
 
 @NgModule({
-    declarations: [AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent],
-    imports: [FormsModule, ReactiveFormsModule, HttpClientModule, BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), UX_MODULE],
-    providers: [],
+    declarations: [ AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent],
+    imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), UX_MODULE],
+    providers: [CategoriesService, MessageService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
