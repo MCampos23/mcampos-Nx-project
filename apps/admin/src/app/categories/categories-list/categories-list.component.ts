@@ -34,22 +34,20 @@ export class CategoriesListComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.categoriesService.deleteCategory(categoryId).subscribe(
-          response =>{
+          () =>{
             this._getCategories()
             this.messageService.add(
               {severity:'success', summary:'Categoría eliminada', detail:'Categoría eliminada con éxito'}
               );
              
           },
-          (error) =>{
+          () =>{
             this.messageService.add(
               {severity:'error', summary:'Error', detail:'No se pudo eliminar la categoría.'}
               );
           }
         )
-      },
-      reject: () => {
-      }
+      }     
   });
   }
 

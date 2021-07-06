@@ -7,7 +7,7 @@ import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 
 @Component({
-    selector: 'mcampos-categories-form',
+    selector: 'admin-categories-form',
     templateUrl: './categories-form.component.html',
     styles: []
 })
@@ -55,30 +55,30 @@ export class CategoriesFormComponent implements OnInit {
 
     private _updateCategory(category: Category) {
         this.categoriesService.updateCategory(category).subscribe(
-            (response) => {
-                this.messageService.add({ severity: 'success', summary: 'Categoría editada', detail: 'Categoría editada con éxito' });
+            (category) => {
+                this.messageService.add({ severity: 'success', summary: 'Categoría editada', detail: `Categoría ${category.name} editada con éxito` });
                 timer(2000)
                     .toPromise()
-                    .then((done) => {
+                    .then(() => {
                         this.location.back();
                     });
             },
-            (error) => {
+            () => {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo editar la categoría.' });
             }
         );
     }
     private _addCategory(category: Category) {
         this.categoriesService.createCategory(category).subscribe(
-            (response) => {
+            () => {
                 this.messageService.add({ severity: 'success', summary: 'Categoría creada', detail: 'Categoría creada con éxito' });
                 timer(2000)
                     .toPromise()
-                    .then((done) => {
+                    .then(() => {
                         this.location.back();
                     });
             },
-            (error) => {
+            () => {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo crear la categoría.' });
             }
         );
