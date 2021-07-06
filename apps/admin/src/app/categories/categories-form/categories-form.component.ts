@@ -53,7 +53,7 @@ export class CategoriesFormComponent implements OnInit {
     private _updateCategory(category: Category) {
         this.categoriesService.updateCategory(category).subscribe(
             (response) => {
-                this.messageService.add({ severity: 'success', summary: 'Categoría creada', detail: 'Categoría creada con éxito' });
+                this.messageService.add({ severity: 'success', summary: 'Categoría editada', detail: 'Categoría editada con éxito' });
                 timer(2000)
                     .toPromise()
                     .then((done) => {
@@ -61,7 +61,7 @@ export class CategoriesFormComponent implements OnInit {
                     });
             },
             (error) => {
-                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo crear la categoría.' });
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo editar la categoría.' });
             }
         );
     }
