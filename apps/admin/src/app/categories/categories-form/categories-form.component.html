@@ -28,6 +28,10 @@
                             <input formControlName="icon" id="icon" type="text" pInputText> 
                             <small *ngIf="categoryForm.icon.invalid && isSubmitted" class="p-error">El icono es obligatorio</small>
                         </div>
+                        <div class="p-field p-col">
+                            <label for="icon">Color</label><br>
+                            <p-colorPicker formControlName="color"></p-colorPicker>
+                        </div>
                     </div>
 
                 </form>

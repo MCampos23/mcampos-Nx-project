@@ -21,9 +21,9 @@ import {ToastModule} from 'primeng/toast';
 import { CategoriesService } from '@mcampos/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ColorPickerModule} from 'primeng/colorpicker';
 
-
-const UX_MODULE = [ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
+const UX_MODULE = [ColorPickerModule, ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
 
 const routes:Routes = [
     { 

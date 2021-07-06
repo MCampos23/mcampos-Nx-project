@@ -13,6 +13,7 @@ import {ConfirmationService} from 'primeng/api';
 export class CategoriesListComponent implements OnInit {
 
   categories: Category[] = []
+ 
 
   constructor(
     private categoriesService: CategoriesService,
@@ -54,7 +55,6 @@ export class CategoriesListComponent implements OnInit {
 
   updateCategory(categoryId: string){
     this.router.navigateByUrl(`categories/form/${categoryId}`)
-    console.log(categoryId)
   }
 
   private _getCategories(){
