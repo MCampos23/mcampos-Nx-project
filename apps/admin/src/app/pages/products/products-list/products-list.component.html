@@ -24,7 +24,7 @@
                             <th>Imagen</th>
                             <th pSortableColumn="price">Precio<p-sortIcon field="price"></p-sortIcon></th>
                             <th pSortableColumn="stock">Stock<p-sortIcon field="stock"></p-sortIcon></th>
-                            <th pSortableColumn="category">Categoría<p-sortIcon field="category"></p-sortIcon></th>
+                            <!-- <th pSortableColumn="category">Categoría<p-sortIcon field="category"></p-sortIcon></th> -->
                             <th pSortableColumn="created">Creado el<p-sortIcon field="created"></p-sortIcon></th>
                             <th></th>
                         </tr>
@@ -35,8 +35,8 @@
                             <td>{{ product.image }}</td>
                             <td>{{ product.price }}</td>
                             <td>{{ product.countInStock }}</td>
-                            <td>{{ product.category }}</td>
-                            <td>{{ product.dateCreated }}</td>
+                            <!-- <td>{{ product.category.name }}</td> -->
+                            <td>{{ product.dateCreated | date: 'd/M/yy, h:mm a'}}</td>
                             <td>
                                 <!-- <p-button (click)="deleteProduct(product.id)" icon="pi pi-trash" styleClass="p-button-danger p-mr-2"></p-button>
                                 <p-button (click)="updateProduct(product.id)" icon="pi pi-pencil" styleClass="p-button-success"></p-button> -->
