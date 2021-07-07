@@ -16,7 +16,6 @@ export class CategoriesFormComponent implements OnInit {
     isSubmitted = false;
     editMode = false;
     currentCategoryID!: string;
-    
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,11 +26,7 @@ export class CategoriesFormComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.form = this.formBuilder.group({
-            name: ['', Validators.required],
-            icon: ['', Validators.required],
-            color: ['#ffffff']
-        });
+        this._initForm();
         this._checkEditMode();
     }
 
@@ -95,6 +90,13 @@ export class CategoriesFormComponent implements OnInit {
                     this.categoryForm.color.setValue(category.color);
                 });
             }
+        });
+    }
+    private _initForm() {
+        this.form = this.formBuilder.group({
+            name: ['', Validators.required],
+            icon: ['', Validators.required],
+            color: ['#ffffff']
         });
     }
 

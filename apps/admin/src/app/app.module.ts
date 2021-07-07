@@ -24,9 +24,13 @@ import { CategoriesService } from '@mcampos/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ColorPickerModule} from 'primeng/colorpicker';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 
-const UX_MODULE = [ColorPickerModule, ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
+
+const UX_MODULE = [InputSwitchModule, InputTextareaModule, InputNumberModule, ColorPickerModule, ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
 
 const routes:Routes = [
     { 
