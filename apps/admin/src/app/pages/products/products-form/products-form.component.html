@@ -63,6 +63,13 @@
                             <label for="richDescription">Descripción detallada </label><br>
                             <p-editor  formControlName="richDescription" [style]="{'height':'320px'}"></p-editor>
                         </div>
+                        <div class="p-field p-col-12">
+                            <label for="image">Imagen principal</label>
+                            <input class="p-inputtext" type="file" accept="image/*" (change)="onImageUpload($event)">
+                            <div class="p-col-2 p-mt-3 p-pl-0">
+                                <img style="width: 100%;" [src]="imageDisplay">
+                            </div>
+                        </div>
                     
                     </div>
                 </form>

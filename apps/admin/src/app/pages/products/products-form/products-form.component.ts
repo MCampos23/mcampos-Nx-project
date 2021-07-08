@@ -13,7 +13,8 @@ export class ProductsFormComponent implements OnInit {
   editMode = false;
   form!: FormGroup;
   isSubmitted = false;  
-  categories: Category[] = []
+  categories: Category[] = [];
+  imageDisplay!: any;
 
 
   constructor(
@@ -27,6 +28,16 @@ export class ProductsFormComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.productForm.category.value)
+  }
+  onImageUpload(event: any){
+    const file = event.target.files[0];
+    if(file){
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        this.imageDisplay = fileReader.result
+      }
+      fileReader.readAsDataURL(file);
+    }
   }
 
 private _initForm(){
