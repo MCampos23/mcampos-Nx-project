@@ -55,9 +55,13 @@
                             
                         </div>
                         <div class="p-field p-col-12">
-                            <label for="description">Descripción</label><br>
+                            <label for="description">Descripción breve</label><br>
                             <textarea [rows]="7" formControlName="description" pInputTextarea></textarea>
                             <small *ngIf="productForm.description.invalid && isSubmitted" class="p-error">la descripción es obligatoria</small>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="richDescription">Descripción detallada </label><br>
+                            <p-editor  formControlName="richDescription" [style]="{'height':'320px'}"></p-editor>
                         </div>
                     
                     </div>
