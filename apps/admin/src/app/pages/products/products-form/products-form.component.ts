@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CategoriesService, Category } from '@mcampos/products';
 
 @Component({
   selector: 'admin-products-form',
@@ -11,17 +12,21 @@ export class ProductsFormComponent implements OnInit {
   
   editMode = false;
   form!: FormGroup;
-  isSubmitted = false;
+  isSubmitted = false;  
+  categories: Category[] = []
+
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private categoriesService: CategoriesService
   ) { }
 
   ngOnInit(): void {
+    this._getCategories();
     this._initForm();
   }
   onSubmit(){
-    console.log("Enviado")
+    console.log(this.productForm.category.value)
   }
 
 private _initForm(){
@@ -40,5 +45,11 @@ private _initForm(){
 
 get productForm() {
   return this.form.controls;
+}
+
+private _getCategories(){
+  this.categoriesService.getCategories().subscribe(cats => {
+    this.categories = cats
+  })
 }
 }

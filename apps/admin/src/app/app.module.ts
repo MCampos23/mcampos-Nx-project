@@ -27,10 +27,11 @@ import {ColorPickerModule} from 'primeng/colorpicker';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {DropdownModule} from 'primeng/dropdown';
 
 
 
-const UX_MODULE = [InputSwitchModule, InputTextareaModule, InputNumberModule, ColorPickerModule, ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
+const UX_MODULE = [DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ColorPickerModule, ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule]
 
 const routes:Routes = [
     { 
