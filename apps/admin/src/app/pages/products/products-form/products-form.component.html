@@ -45,7 +45,7 @@
                         <div class="p-field p-col-4">
                             <label for="category">Categoría</label><br>   
 
-                            <p-dropdown  [options]="categories" formControlName="category" optionLabel="name" placeholder="Selecciona la categoría" optionValue="name" [filter]="true" filterBy="name" [showClear]="true"></p-dropdown>
+                            <p-dropdown  [options]="categories" formControlName="category" optionLabel="name" placeholder="Selecciona la categoría" optionValue="id" [filter]="true" filterBy="name" [showClear]="true"></p-dropdown>
 
                             <small *ngIf="productForm.category.invalid && isSubmitted" class="p-error">La categoría es obligatoria</small>
                         </div>
