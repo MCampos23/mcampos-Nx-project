@@ -104,7 +104,7 @@ private _initForm(){
     countInStock: ['', Validators.required],
     description: ['', Validators.required],
     richDescription: [''],
-    image: [''],
+    image: ['',  Validators.required],
     isFeatured: [false]    
 });
 }
@@ -134,6 +134,8 @@ private _checkEditMode() {
            this.productForm.description.setValue(product.description);
            this.productForm.richDescription.setValue(product.richDescription);
            this.imageDisplay = product.image;
+           this.productForm.image.setValidators([]);
+           this.productForm.image.updateValueAndValidity();
                           
           });
       }

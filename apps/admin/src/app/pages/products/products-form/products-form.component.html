@@ -57,7 +57,7 @@
                         <div class="p-field p-col-12">
                             <label for="description">Descripción breve</label><br>
                             <textarea [rows]="7" formControlName="description" pInputTextarea></textarea>
-                            <small *ngIf="productForm.description.invalid && isSubmitted" class="p-error">la descripción es obligatoria</small>
+                            <small *ngIf="productForm.description.invalid && isSubmitted" class="p-error">La descripción es obligatoria</small>
                         </div>
                         <div class="p-field p-col-12">
                             <label for="richDescription">Descripción detallada </label><br>
@@ -66,6 +66,8 @@
                         <div class="p-field p-col-12">
                             <label for="image">Imagen principal</label>
                             <input class="p-inputtext" type="file" accept="image/*" (change)="onImageUpload($event)">
+                            <small *ngIf="productForm.image.invalid && isSubmitted" class="p-error">La imagen es obligatoria</small>
+
                             <div class="p-col-2 p-mt-3 p-pl-0">
                                 <img style="width: 100%;" [src]="imageDisplay">
                             </div>
