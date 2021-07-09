@@ -25,12 +25,12 @@ export class ProductsService {
     return this.http.post<Product>(this.apiURLProducts, productData)
   }
 
-  updateCategory(product: FormData, productId: string): Observable<Product>{
+  updateProduct(product: FormData, productId: string): Observable<Product>{
     return this.http.put<Product>(`${this.apiURLProducts}/${productId}`, product)
   }
 
-  // deleteCategory(categoryId: string): Observable<any>{
-  //   return this.http.delete<Object>(`${this.apiURLCategories}/${categoryId}`, )
-  // }
+  deleteProduct(categoryId: string): Observable<Product>{
+    return this.http.delete<Product>(`${this.apiURLProducts}/${categoryId}`, )
+  }
 }
 

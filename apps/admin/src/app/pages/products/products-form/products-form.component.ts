@@ -64,7 +64,7 @@ export class ProductsFormComponent implements OnInit {
     }
   }
   private _updateProduct(productData: FormData){
-    this.productsService.updateCategory(productData, this.currentProductID ).subscribe(
+    this.productsService.updateProduct(productData, this.currentProductID ).subscribe(
       (product) => {
           this.messageService.add({ severity: 'success', summary: 'Categoría editada', detail: `El producto ${product.name} ha sido editado con éxito` });
           timer(2000)
