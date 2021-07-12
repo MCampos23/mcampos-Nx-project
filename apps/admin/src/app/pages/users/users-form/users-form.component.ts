@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { UsersService, User } from '@mcampos/users';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
+import * as countriesLib from 'i18n-iso-countries'
+
+declare const require: (arg0: string) => countriesLib.LocaleData;
 
 @Component({
   selector: 'admin-users-form',
@@ -17,7 +20,8 @@ export class UsersFormComponent implements OnInit {
   form!: FormGroup;
   isSubmitted = false;
   editMode = false;
-  currentCategoryID!: string;
+  currentUserID!: string;
+  countries:any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,7 +33,20 @@ export class UsersFormComponent implements OnInit {
 
   ngOnInit(): void {
     this._initForm();
+    this._getCountries();
     this._checkEditMode();
+  }
+
+  private _getCountries(){
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    countriesLib.registerLocale(require("i18n-iso-countries/langs/en.json"));
+    this.countries = Object.entries(countriesLib.getNames("en", {select: "official"})).map(entry => {
+      return {
+       id: entry[0],
+       name: entry[1]
+      }
+    })
+    console.log(this.countries); 
   }
 
   onSubmit() {
@@ -38,7 +55,7 @@ export class UsersFormComponent implements OnInit {
         return;
     }
     const user: User = {
-        id: this.currentCategoryID,
+        id: this.currentUserID,
         name: this.userForm.name.value,
         email: this.userForm.email.value,
         password: this.userForm.password.value,
@@ -94,7 +111,7 @@ private _checkEditMode() {
   this.route.params.subscribe((params) => {
       if (params.id) {
           this.editMode = true;
-          this.currentCategoryID = params.id;
+          this.currentUserID = params.id;
           this.usersService.getUser(params.id).subscribe((user) => {
               this.userForm.name.setValue(user.name);
               this.userForm.email.setValue(user.email);
