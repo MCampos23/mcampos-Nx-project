@@ -11,6 +11,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoriesListComponent } from './pages/categories/categories-list/categories-list.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
+import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 
 import {CardModule} from 'primeng/card';
 import {ToolbarModule} from 'primeng/toolbar';
@@ -67,13 +69,25 @@ const routes:Routes = [
             {
                 path: 'products/form/:id',
                 component:ProductsFormComponent
+            },
+            {
+                path: 'users',
+                component:UsersListComponent
+            },
+            {
+                path: 'users/form',
+                component:UsersFormComponent
+            },
+            {
+                path: 'users/form/:id',
+                component:UsersFormComponent
             }
         ]
     }
 ]
 
 @NgModule({
-    declarations: [ AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent, ProductsListComponent, ProductsFormComponent],
+    declarations: [ AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent, ProductsListComponent, ProductsFormComponent, UsersListComponent, UsersFormComponent],
     imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), UX_MODULE],
     providers: [CategoriesService, MessageService, ConfirmationService],
     bootstrap: [AppComponent]

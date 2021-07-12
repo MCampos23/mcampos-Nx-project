@@ -1,0 +1,66 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card header="Usuarios" subheader="Lista de Usuarios">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <p-button label="Añadir nuevo" icon="pi pi-plus" styleClass="p-button-success" routerLink="form"></p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-table
+                    [value]="users"
+                    styleClass="p-datatable-gridlines"
+                    [rowHover]="true"
+                    [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+                >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="name">
+                                Nombre
+                                <p-sortIcon field="name"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="email">
+                                Email
+                                <p-sortIcon field="email"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="country">
+                                Country
+                                <p-sortIcon field="email"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="city">
+                                Ciudad
+                                <p-sortIcon field="city"></p-sortIcon> 
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-user>
+                        <tr>
+                            <td>
+                                {{ user.name }}
+                            </td>
+                            <td>
+                                {{ user.email }}
+                            </td>
+                            <td>
+                                {{ user.country }}
+                            </td>
+                            <td>
+                                {{ user.city }}
+                            </td>
+                            <td>
+                                <p-button (click)="deleteUser(user.id)" icon="pi pi-trash" styleClass="p-button-danger p-mr-2"></p-button>
+                               <p-button (click)="updateUser(user.id)" icon="pi pi-pencil" styleClass="p-button-success"></p-button> 
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </p-card>
+</div>
+<p-confirmDialog acceptLabel="Sí" [style]="{ width: '50vw' }" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
