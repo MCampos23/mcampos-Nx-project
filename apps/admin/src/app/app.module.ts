@@ -32,6 +32,8 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 import {DropdownModule} from 'primeng/dropdown';
 import {EditorModule} from 'primeng/editor';
 import {PaginatorModule} from 'primeng/paginator';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 
 
 
@@ -81,13 +83,21 @@ const routes:Routes = [
             {
                 path: 'users/form/:id',
                 component:UsersFormComponent
+            },
+            {
+                path: 'orders',
+                component:OrdersListComponent
+            },
+            {
+                path: 'orders/:id',
+                component:OrderDetailsComponent
             }
         ]
     }
 ]
 
 @NgModule({
-    declarations: [ AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent, ProductsListComponent, ProductsFormComponent, UsersListComponent, UsersFormComponent],
+    declarations: [ AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent, ProductsListComponent, ProductsFormComponent, UsersListComponent, UsersFormComponent, OrdersListComponent, OrderDetailsComponent],
     imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), UX_MODULE],
     providers: [CategoriesService, MessageService, ConfirmationService],
     bootstrap: [AppComponent]
