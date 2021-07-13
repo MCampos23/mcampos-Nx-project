@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User, UsersService } from '@mcampos/users'
 import { ConfirmationService, MessageService } from 'primeng/api';
-import * as countriesLib from 'i18n-iso-countries'
-
-declare const require: (arg0: string) => countriesLib.LocaleData;
 
 
 @Component({
@@ -16,7 +13,7 @@ declare const require: (arg0: string) => countriesLib.LocaleData;
 export class UsersListComponent implements OnInit {
   
   users: User[] = []
- 
+
 
   constructor(
     private usersService: UsersService,
@@ -28,11 +25,11 @@ export class UsersListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._getUsers()
+   
+   this._getUsers()
   }
 
-  //console.log("US (Alpha-2) => " + countriesLib.getName("US", "en", {select: "official"})); // United States of America
-
+  
   deleteUser(userId: string) {
 
     this.confirmationService.confirm({
@@ -61,13 +58,17 @@ export class UsersListComponent implements OnInit {
     this.router.navigateByUrl(`users/form/${userId}`)
   }
 
+  getCountryName(countryKey: string){
+    if(countryKey) return this.usersService.getCountry(countryKey)
+    else return
+  } 
+
   private _getUsers(){
     this.usersService.getUsers().subscribe( user => {
-      
-      this.users = user;
-      console.log(user)
-     // this.user.country = "US (Alpha-2) => " + countriesLib.getName(this.user.country, "en", {select: "official"})
-    })
+      this.users = user;      
+      })     
+          
+   
   }
 
 }

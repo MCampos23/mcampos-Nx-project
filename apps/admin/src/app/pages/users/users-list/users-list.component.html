@@ -29,7 +29,7 @@
                                 <p-sortIcon field="email"></p-sortIcon>
                             </th>
                             <th pSortableColumn="country">
-                                Country
+                                País
                                 <p-sortIcon field="email"></p-sortIcon>
                             </th>
                             <th pSortableColumn="city">
@@ -47,7 +47,7 @@
                                 {{ user.email }}
                             </td>
                             <td>
-                                {{ user.country }}
+                                {{ getCountryName(user.country) }}
                             </td>
                             <td>
                                 {{ user.city }}

@@ -5,9 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsersService, User } from '@mcampos/users';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
-import * as countriesLib from 'i18n-iso-countries'
 
-declare const require: (arg0: string) => countriesLib.LocaleData;
 
 @Component({
   selector: 'admin-users-form',
@@ -35,18 +33,13 @@ export class UsersFormComponent implements OnInit {
     this._initForm();
     this._getCountries();
     this._checkEditMode();
+   
   }
 
   private _getCountries(){
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    countriesLib.registerLocale(require("i18n-iso-countries/langs/en.json"));
-    this.countries = Object.entries(countriesLib.getNames("en", {select: "official"})).map(entry => {
-      return {
-       id: entry[0],
-       name: entry[1]
-      }
-    })
-    console.log(this.countries); 
+   
+    this.countries = this.usersService.getCountries()
+    
   }
 
   onSubmit() {
