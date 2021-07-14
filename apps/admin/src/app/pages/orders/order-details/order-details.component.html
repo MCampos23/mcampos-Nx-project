@@ -14,6 +14,8 @@
                 <div class="p-col-4">
                     <h5>Estado:</h5>
                     <p-dropdown
+                    [options]="orderStatuses" 
+                    [(ngModel)]="selectedStatus" 
                     >
 
                     </p-dropdown>
@@ -27,13 +29,75 @@
         </p-fieldset>
         <p-fieldset styleClass="p-mb-4" legend="Productos del pedido" [toggleable]="true">
             <div class="p-grid">
-                <div class="p-col-12">Content</div>
+                <div class="p-col-2 p-mb-4">
+                    <h5>Nombre</h5>
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    <h5>Marca</h5>
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    <h5>Categoría</h5>
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    <h5>Precio</h5>
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    <h5>Cantidad</h5>
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    <h5>Subtotal</h5>
+                </div>
+            </div>
+            <div class="p-grid" >
+                <div class="p-col-2 p-mb-4">
+                   
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    Marca
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    Categoría
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    Precio
+                </div>
+                <div class="p-col-2 p-mb-4">
+                    Cantidad
+                </div>
+                <div class="p-col-2  p-mb-4">
+                    Subtotal
+                </div>
+            </div>
+            <hr class=" p-mb-4">
+            <div class="p-grid" style="color: green;">
+                <div class="p-col-2 p-offset-8 p-text-bold">Importe total:</div>
+                <div class="p-col-2 p-text-bold">5484 €</div>
             </div>
         </p-fieldset>
         <p-fieldset styleClass="p-mb-4" legend="Dirección del pedido" [toggleable]="true">
             <div class="p-grid">
-                <div class="p-col-12">Content</div>
-            </div>
+                
+                    <div class="p-col-3 p-mb-4">
+                        <h5>Dirección de envío:</h5>
+                        <p>{{ order.shippingAddress1 }}<br>
+                           {{ order.zip }} {{ order.city }} <br>
+                           {{ order.country }} 
+                        </p>
+                    </div>
+                    <div class="p-col-3 p-mb-4">
+                        <h5>Nombre del cliente:</h5>
+                        <p>{{ order.user }}</p>
+                    </div>
+                    <div class="p-col-3 p-mb-4">
+                        <h5>Email:</h5>
+                        <p>juansintierra@gmail.com </p>
+                    </div>
+                    <div class="p-col-3 p-mb-4">
+                        <h5>Teléfono:</h5>
+                        <p> 658 98 52 36</p>
+                    </div>
+                </div>
+           
         </p-fieldset>
     </p-card>
 </div>

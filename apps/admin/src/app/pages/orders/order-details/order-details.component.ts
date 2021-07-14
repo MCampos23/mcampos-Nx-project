@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Order, OrdersService } from '@mcampos/orders';
 
+
 @Component({
   selector: 'admin-order-details',
   templateUrl: './order-details.component.html',
@@ -11,7 +12,7 @@ import { Order, OrdersService } from '@mcampos/orders';
 export class OrderDetailsComponent implements OnInit {
   
   order!: Order;
-
+  
   constructor(
     private ordersService: OrdersService,
     private route: ActivatedRoute
@@ -26,6 +27,7 @@ export class OrderDetailsComponent implements OnInit {
       if(params.id){
         this.ordersService.getOrder(params.id).subscribe(order => {
           this.order= order
+          console.log(order)
         })
       }
     })

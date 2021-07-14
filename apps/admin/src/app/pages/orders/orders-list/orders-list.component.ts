@@ -1,29 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order, OrdersService } from '@mcampos/orders';
+import { ORDER_STATUS } from '../order.constants'
 
-const ORDER_STATUS = {
-  0 : {
-    label: 'Pendiente',
-    color: 'primary'
-  },
-  1 : {
-    label: 'Procesado',
-    color: 'warning'
-  },
-  2 : {
-    label: 'En curso',
-    color: 'warning'
-  },
-  3 : {
-    label: 'Enviado',
-    color: 'success'
-  },
-  4 : {
-    label: 'Rechazado',
-    color: 'danger'
-  }
-}
 
 @Component({
   selector: 'admin-orders-list',

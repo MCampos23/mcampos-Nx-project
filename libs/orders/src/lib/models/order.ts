@@ -6,6 +6,7 @@ export class Order {
     orderItems? : OrderItem;
     shippingAddress1? : string;
     shippingAddress2? : string;
+    zip?: string;
     city? : string;
     country? : string;
     phone? : string;
