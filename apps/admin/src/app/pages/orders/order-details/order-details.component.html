@@ -1,1 +1,39 @@
-<p>order-details works!</p>
+<p-toast></p-toast>
+<div class="admin-page" *ngIf="order">
+    <p-card header="Ver pedido" subheader="Aquí podrás ver los detalles del pedido y editar su estado">
+        <p-fieldset styleClass="p-mb-4" legend="Detalles del pedido" [toggleable]="true">
+            <div class="p-grid">
+                <div class="p-col-4">
+                    <h5>Id del pedido:</h5>
+                    <p>{{ order.id }}</p>
+                </div>
+                <div class="p-col-4">
+                    <h5>Fecha:</h5>
+                    <p>{{ order.dateOrdered | date:'d/M/y, hh:mm a' }}</p>
+                </div>
+                <div class="p-col-4">
+                    <h5>Estado:</h5>
+                    <p-dropdown
+                    >
+
+                    </p-dropdown>
+                </div>
+                <div class="p-col-4">
+                    <h5>Precio total:</h5>
+                    <p>{{ order.totalPrice }} €</p>
+                </div>
+               
+            </div>
+        </p-fieldset>
+        <p-fieldset styleClass="p-mb-4" legend="Productos del pedido" [toggleable]="true">
+            <div class="p-grid">
+                <div class="p-col-12">Content</div>
+            </div>
+        </p-fieldset>
+        <p-fieldset styleClass="p-mb-4" legend="Dirección del pedido" [toggleable]="true">
+            <div class="p-grid">
+                <div class="p-col-12">Content</div>
+            </div>
+        </p-fieldset>
+    </p-card>
+</div>

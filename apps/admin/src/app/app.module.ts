@@ -34,10 +34,13 @@ import {EditorModule} from 'primeng/editor';
 import {PaginatorModule} from 'primeng/paginator';
 import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
+import { TagModule } from 'primeng/tag';
+import {FieldsetModule} from 'primeng/fieldset';
 
 
 
-const UX_MODULE = [PaginatorModule, DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ColorPickerModule, ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule, EditorModule]
+
+const UX_MODULE = [FieldsetModule, TagModule, PaginatorModule, DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ColorPickerModule, ConfirmDialogModule, InputTextModule, CardModule, ToolbarModule, ButtonModule, TableModule,ToastModule, EditorModule]
 
 const routes:Routes = [
     { 
@@ -89,7 +92,7 @@ const routes:Routes = [
                 component:OrdersListComponent
             },
             {
-                path: 'orders/:id',
+                path: 'order/:id',
                 component:OrderDetailsComponent
             }
         ]

@@ -38,14 +38,13 @@
                                 {{ order.totalPrice }}
                             </td>
                             <td>
-                                {{ order.dateOrdered }}
+                                {{ order.dateOrdered | date:'d/M/y, hh:mm a'}}
                             </td>
                             <td>
-                                {{ order.status }}
+                                <p-tag [value]="orderStatus[order.status].label" [severity]="orderStatus[order.status].color"></p-tag>
                             </td>
                             <td>
-                                <!-- <p-button (click)="deleteOrder(order.id)" icon="pi pi-trash" styleClass="p-button-danger p-mr-2"></p-button>
-                               <p-button (click)="showOrder(order.id)" icon="pi pi-pencil" styleClass="p-button-success"></p-button>  -->
+                            <p-button (click)="showOrder(order.id)" icon="pi pi-eye" styleClass="p-button-secondary"></p-button> 
                             </td>
                         </tr>
                     </ng-template>
