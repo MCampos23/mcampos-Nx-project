@@ -1,4 +1,5 @@
-export const ORDER_STATUS = {
+
+export const ORDER_STATUS: {[index: string]:any} = {
     0 : {
       label: 'Pendiente',
       color: 'primary'

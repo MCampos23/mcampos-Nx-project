@@ -15,7 +15,10 @@
                     <h5>Estado:</h5>
                     <p-dropdown
                     [options]="orderStatuses" 
-                    [(ngModel)]="selectedStatus" 
+                    optionLabel="name"
+                    optionValue="id"
+                    [(ngModel)]="selectedStatus"
+                    (onChange)="onStatusChange($event)"
                     >
 
                     </p-dropdown>
