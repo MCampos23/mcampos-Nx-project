@@ -13,6 +13,7 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
+import { UsersModule } from '@mcampos/users';
 
 import {CardModule} from 'primeng/card';
 import {ToolbarModule} from 'primeng/toolbar';
@@ -36,6 +37,8 @@ import { OrdersListComponent } from './pages/orders/orders-list/orders-list.comp
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 import { TagModule } from 'primeng/tag';
 import {FieldsetModule} from 'primeng/fieldset';
+
+
 
 
 
@@ -101,7 +104,7 @@ const routes:Routes = [
 
 @NgModule({
     declarations: [ AppComponent, DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent, ProductsListComponent, ProductsFormComponent, UsersListComponent, UsersFormComponent, OrdersListComponent, OrderDetailsComponent],
-    imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), UX_MODULE],
+    imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), UX_MODULE, UsersModule],
     providers: [CategoriesService, MessageService, ConfirmationService],
     bootstrap: [AppComponent]
 })
