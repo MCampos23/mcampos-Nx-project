@@ -7,13 +7,13 @@
                     [value]="orders"
                     styleClass="p-datatable-gridlines"
                     [rowHover]="true"
-                    [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+                    
                 >
                     <ng-template pTemplate="header">
                         <tr>
-                            <th pSortableColumn="user">
+                            <th pSortableColumn="user.name">
                                 Usuario
-                                <p-sortIcon field="user"></p-sortIcon>
+                                <p-sortIcon field="user.name"></p-sortIcon>
                             </th>
                             <th pSortableColumn="totalPrice">
                                 Precio total
@@ -44,7 +44,8 @@
                                 <p-tag [value]="orderStatus[order.status].label" [severity]="orderStatus[order.status].color"></p-tag>
                             </td>
                             <td>
-                            <p-button (click)="showOrder(order.id)" icon="pi pi-eye" styleClass="p-button-secondary"></p-button> 
+                            <p-button (click)="showOrder(order.id)" icon="pi pi-eye" styleClass="p-button-secondary p-mr-3"></p-button> 
+                            <p-button (click)="deleteOrder(order.id)" icon="pi pi-trash" styleClass="p-button-danger"></p-button> 
                             </td>
                         </tr>
                     </ng-template>
