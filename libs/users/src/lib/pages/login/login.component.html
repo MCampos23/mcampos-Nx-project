@@ -2,7 +2,7 @@
     <div class="login-register-panel">
         <div class="p-grid">
             <div class="p-col-6">
-                <img src="assets/images/login-photo.png">
+                <img src="assets/images/login-photo.png" />
             </div>
             <div class="p-col-6 p-p-6">
                 <h3>¡Bienvenid@!</h3>
@@ -12,16 +12,20 @@
                         <div class="p-col-12">
                             <div class="p-inputgroup p-mb-3">
                                 <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                                <input type="text" pInputText placeholder="Email">         
+                                <input type="text" formControlName="email" pInputText placeholder="Email" />
                             </div>
+                            <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error">
+                                <span *ngIf="loginForm.email.errors!.required">El email es obligatorio</span>
+                                <span *ngIf="loginForm.email.errors!.email">El email no es válido</span>
+                            </small>
                             <div class="p-inputgroup">
                                 <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-                                <input type="password" pInputText placeholder="Password">         
+                                <input type="password" formControlName="password" pInputText placeholder="Password" />
                             </div>
+                            <small *ngIf="loginForm.password.invalid && isSubmitted" class="p-error">La contraseña es obligatoria</small>
                         </div>
                         <div class="p-col-12">
-                            <p-button label="Entrar" styleClass="full-btn"></p-button>
-                       
+                            <p-button label="Entrar" styleClass="full-btn" (onClick)="onSubmit()"></p-button>
                         </div>
                     </div>
                 </form>
