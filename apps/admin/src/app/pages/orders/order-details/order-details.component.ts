@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Order, OrdersService } from '@mcampos/orders';
+import { Order, OrderItem, OrdersService } from '@mcampos/orders';
 import { MessageService } from 'primeng/api';
 import { ORDER_STATUS } from '../order.constants';
 
@@ -16,6 +16,7 @@ export class OrderDetailsComponent implements OnInit {
   order!: Order;
   orderStatuses!: Array<any>;
   selectedStatus!: any;
+
   
   
   constructor(
@@ -47,7 +48,8 @@ export class OrderDetailsComponent implements OnInit {
         this.ordersService.getOrder(params.id).subscribe(order => {
           this.order = order
           this.selectedStatus = order.status
-          
+ 
+          console.log(order)
         })
       }
     })

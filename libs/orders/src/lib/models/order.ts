@@ -3,7 +3,7 @@ import { User } from '@mcampos/users'
 
 export class Order {
     id? : string;
-    orderItems? : OrderItem;
+    orderItems? : Array<OrderItem>;
     shippingAddress1? : string;
     shippingAddress2? : string;
     zip?: string;

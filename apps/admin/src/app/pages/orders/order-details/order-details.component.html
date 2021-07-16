@@ -51,30 +51,30 @@
                     <h5>Subtotal</h5>
                 </div>
             </div>
-            <div class="p-grid" >
+            <div class="p-grid" *ngFor="let orderItem of order.orderItems" >
                 <div class="p-col-2 p-mb-4">
-                   
+                   {{ orderItem.product!.name }}
                 </div>
                 <div class="p-col-2 p-mb-4">
-                    Marca
+                    {{ orderItem.product!.brand }}
                 </div>
                 <div class="p-col-2 p-mb-4">
-                    Categoría
+                    {{ orderItem.product!.category!.name }}
                 </div>
                 <div class="p-col-2 p-mb-4">
-                    Precio
+                    {{ orderItem.product!.price }} €
                 </div>
                 <div class="p-col-2 p-mb-4">
-                    Cantidad
+                    {{ orderItem.quantity }}
                 </div>
                 <div class="p-col-2  p-mb-4">
-                    Subtotal
+                    {{ orderItem.product!.price! * orderItem.quantity! }} €
                 </div>
             </div>
             <hr class=" p-mb-4">
             <div class="p-grid" style="color: green;">
                 <div class="p-col-2 p-offset-8 p-text-bold">Importe total:</div>
-                <div class="p-col-2 p-text-bold">5484 €</div>
+                <div class="p-col-2 p-text-bold">{{ order.totalPrice}} €</div>
             </div>
         </p-fieldset>
         <p-fieldset styleClass="p-mb-4" legend="Dirección del pedido" [toggleable]="true">
@@ -89,15 +89,15 @@
                     </div>
                     <div class="p-col-3 p-mb-4">
                         <h5>Nombre del cliente:</h5>
-                        <p>{{ order.user }}</p>
+                        <p>{{ order.user!.name }}</p>
                     </div>
                     <div class="p-col-3 p-mb-4">
                         <h5>Email:</h5>
-                        <p>juansintierra@gmail.com </p>
+                        <p>{{ order.user!.email }} </p>
                     </div>
                     <div class="p-col-3 p-mb-4">
                         <h5>Teléfono:</h5>
-                        <p> 658 98 52 36</p>
+                        <p> {{ order.user!.phone }}</p>
                     </div>
                 </div>
            
