@@ -31,9 +31,10 @@
                         <div class="p-field p-col-4">
                             <label for="email">Email</label>
                             <input formControlName="email" id="email" type="text" pInputText> 
-                            <small *ngIf="userForm.email.invalid && isSubmitted" class="p-error"> 
-                              
-                               <span>El email no es correcto</span>
+                        
+                            <small *ngIf="userForm.email.invalid && isSubmitted" class="p-error">
+                                <span *ngIf="userForm.email.errors!.required">El email es obligatorio</span>
+                                <span *ngIf="userForm.email.errors!.email">El email no es válido</span>
                             </small>
                         </div>
                         <div class="p-field p-col-4">
