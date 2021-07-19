@@ -10,6 +10,6 @@ export class User {
     street? : string; 
     zip? : string; 
     apartment? : string; 
-    token? : string; 
+    token?: string; 
 
 }
