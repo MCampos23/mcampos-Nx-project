@@ -13,7 +13,7 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
-import { UsersModule } from '@mcampos/users';
+import { AuthGuard, UsersModule } from '@mcampos/users';
 
 import {CardModule} from 'primeng/card';
 import {ToolbarModule} from 'primeng/toolbar';
@@ -49,6 +49,7 @@ const routes:Routes = [
     { 
         path: '',
         component: ShellComponent,
+        canActivate: [AuthGuard],
         children: [
             {
                 path: 'dashboard',
