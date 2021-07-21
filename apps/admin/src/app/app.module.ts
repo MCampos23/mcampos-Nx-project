@@ -78,9 +78,9 @@ const UX_MODULE = [
         ReactiveFormsModule,
         HttpClientModule,
         BrowserModule,
-        AppRoutingModule,
+        UsersModule,
         UX_MODULE,
-        UsersModule
+        AppRoutingModule,
     ],
     providers: [CategoriesService, MessageService, ConfirmationService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
     bootstrap: [AppComponent]

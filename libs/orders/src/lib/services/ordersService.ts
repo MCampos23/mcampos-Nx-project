@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment'
 import { Order } from '../models/order';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -31,11 +32,15 @@ export class OrdersService {
   }
 
   getOrdersCount(): Observable<any>{
-    return this.http.get(`${this.apiURLOrders}/get/count`)
+    return this.http
+      .get<number>(`${this.apiURLOrders}/get/count`)
+      .pipe(map((objectValue: any) => objectValue.orderCount));
   }
 
   getTotalSales(): Observable<any> {
-    return this.http.get(`${this.apiURLOrders}/get/totalsales`)
+    return this.http
+    .get<number>(`${this.apiURLOrders}/get/totalsales`)
+    .pipe(map((objectValue: any) => objectValue.totalsales));
   }
 }
 

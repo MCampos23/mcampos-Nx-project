@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { User } from '../models/user';
+import { map } from 'rxjs/operators';
 import * as countriesLib from 'i18n-iso-countries';
 
 declare const require: (arg0: string) => countriesLib.LocaleData;
@@ -52,6 +53,8 @@ export class UsersService {
     }
 
     getUsersCount(): Observable<any> {
-      return this.http.get(`${this.apiURLUsers}/get/count`);
+      return this.http
+      .get<number>(`${this.apiURLUsers}/get/count`)
+      .pipe(map((objectValue: any) => objectValue.userCount));
   }
 }
