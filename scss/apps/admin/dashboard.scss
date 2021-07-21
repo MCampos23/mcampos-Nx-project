@@ -1,0 +1,46 @@
+.d-item {
+    display: flex;
+    text-align: center;
+    color: var(--surface-0);
+    justify-content: space-between;
+  
+
+    .pi {
+        font-size: 4em;
+        margin-bottom: 15px;
+    }
+
+    .name {
+        font-size: 1.4em;
+    }
+
+    .number {
+        font-size: 2.5em;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+}
+.d-orders {
+  
+    background: #d1913c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffd194, #d1913c); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffd194, #d1913c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.d-products {
+    background: #283048; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #859398, #283048); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #859398, #283048); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.d-users {
+    background: #085078; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #85d8ce, #085078); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #85d8ce, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.d-totalsales {
+    background: #4776e6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8e54e9, #4776e6); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8e54e9, #4776e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    .number {
+        font-size: 1.8em;
+    }
+}
