@@ -6,6 +6,10 @@ import { ProductsSearchComponent } from './components/products-search/products-s
     imports: [CommonModule],
     declarations: [
       ProductsSearchComponent
+    ],
+    exports: [
+      ProductsSearchComponent,
+     
     ]
 })
 export class ProductsModule {}
