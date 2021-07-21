@@ -8,7 +8,7 @@
                             <i class="pi pi-shopping-cart"></i><br>
                             <span class="name">Pedidos</span>
                         </div>
-                            <span class="number">{{ ordersCount }}</span>
+                            <span class="number">{{ statistics[0].orderCount }}</span>
                     </div>
                 </p-card>
             </div>
@@ -19,7 +19,7 @@
                             <i class="pi pi-briefcase"></i><br>
                             <span class="name">Productos</span>
                         </div>
-                            <span class="number">{{ productsCount }}</span>
+                            <span class="number">{{ statistics[1].productCount }}</span>
                     </div>
                 </p-card>
             </div>
@@ -30,7 +30,7 @@
                             <i class="pi pi-users"></i><br>
                             <span class="name">Usuarios</span>
                         </div>
-                            <span class="number">{{ usersCount }}</span>
+                            <span class="number">{{ statistics[2].userCount }}</span>
                     </div>
                 </p-card>
             </div>
@@ -41,7 +41,7 @@
                             <i class="pi pi-euro"></i><br>
                             <span class="name">Ventas</span>
                         </div>
-                            <span class="number">{{ totalSales }}€</span>
+                            <span class="number">{{ statistics[3].totalsales }}€</span>
                     </div>
                 </p-card>
             </div>

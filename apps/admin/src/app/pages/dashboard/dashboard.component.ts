@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OrdersService } from '@mcampos/orders';
 import { ProductsService } from '@mcampos/products';
 import { UsersService } from '@mcampos/users';
+import { combineLatest, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'admin-dashboard',
     templateUrl: './dashboard.component.html'
 })
-export class DashboardComponent implements OnInit {
-    ordersCount!: string;
-    productsCount!: string;
-    usersCount!: string;
-    totalSales!: string;
+export class DashboardComponent implements OnInit, OnDestroy {
+    statistics:Array<any> = []
+    endsubs$: Subject<any> = new Subject();
     constructor(
       private ordersService: OrdersService,
       private productsService: ProductsService,
@@ -20,31 +20,21 @@ export class DashboardComponent implements OnInit {
       ) {}
 
     ngOnInit(): void {
-        this.getTotalOrders();
-        this.getTotalProducts();
-        this.getTotalUsers();
-        this.getTotalSales();
+        combineLatest([
+            this.ordersService.getOrdersCount(),
+            this.productsService.getProductsCount(),
+            this.usersService.getUsersCount(),
+            this.ordersService.getTotalSales()
+          ])
+            .pipe(takeUntil(this.endsubs$))
+            .subscribe((values) => {
+                console.log(values)
+              this.statistics = values;
+            });
     }
 
-    getTotalOrders() {
-        this.ordersService.getOrdersCount().subscribe((count) => {
-            this.ordersCount = count.orderCount;
-        });
-    }
-    getTotalProducts() {
-        this.productsService.getProductsCount().subscribe((count) => {
-            this.productsCount = count.productCount;
-        });
-    }
-    getTotalUsers() {
-        this.usersService.getUsersCount().subscribe((count) => {
-            this.usersCount = count.userCount;
-        });
-    }
-    getTotalSales() {
-        this.ordersService.getTotalSales().subscribe((count) => {
-          console.log(count)  
-          this.totalSales = count.totalsales;
-        });
-    }
+    ngOnDestroy() {
+        this.endsubs$.next();
+        this.endsubs$.complete();
+      }
 }

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Order, OrderItem, OrdersService } from '@mcampos/orders';
+import { Order, OrdersService } from '@mcampos/orders';
 import { MessageService } from 'primeng/api';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { ORDER_STATUS } from '../order.constants';
 
 
@@ -11,11 +13,12 @@ import { ORDER_STATUS } from '../order.constants';
   styles: [
   ]
 })
-export class OrderDetailsComponent implements OnInit {
+export class OrderDetailsComponent implements OnInit, OnDestroy {
   
   order!: Order;
   orderStatuses!: Array<any>;
   selectedStatus!: any;
+  endsubs$: Subject<any> = new Subject();
 
   
   
@@ -29,6 +32,10 @@ export class OrderDetailsComponent implements OnInit {
     this._mapOrderStatus();
     this._getOrder();
   }
+  ngOnDestroy() {
+    this.endsubs$.next();
+    this.endsubs$.complete();
+  }
 
   private _mapOrderStatus(){
     this.orderStatuses = Object.keys(ORDER_STATUS).map(key => {
@@ -39,13 +46,15 @@ export class OrderDetailsComponent implements OnInit {
       }
  
     });
-   
   }
 
   private _getOrder(){
     this.route.params.subscribe(params => {
       if(params.id){
-        this.ordersService.getOrder(params.id).subscribe(order => {
+        this.ordersService
+          .getOrder(params.id)
+          .pipe(takeUntil(this.endsubs$))
+          .subscribe(order => {
           this.order = order
           this.selectedStatus = order.status
  
@@ -55,7 +64,10 @@ export class OrderDetailsComponent implements OnInit {
     })
   }
   onStatusChange(event: any){
-    this.ordersService.updateOrder({status: event.value},  this.order.id).subscribe(
+    this.ordersService
+      .updateOrder({status: event.value},  this.order.id)
+      .pipe(takeUntil(this.endsubs$))
+      .subscribe(
       () => {
       this.messageService.add({
          severity: 'success', 

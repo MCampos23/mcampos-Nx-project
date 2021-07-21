@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order, OrdersService } from '@mcampos/orders';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { ORDER_STATUS } from '../order.constants';
 
 @Component({
@@ -9,9 +11,10 @@ import { ORDER_STATUS } from '../order.constants';
     templateUrl: './orders-list.component.html',
     styles: []
 })
-export class OrdersListComponent implements OnInit {
+export class OrdersListComponent implements OnInit, OnDestroy {
     orderStatus: any = ORDER_STATUS;
     orders: Order[] = [];
+    endsubs$: Subject<any> = new Subject();
 
     constructor(
         private ordersService: OrdersService,
@@ -23,6 +26,10 @@ export class OrdersListComponent implements OnInit {
     ngOnInit(): void {
         this._getOrders();
     }
+    ngOnDestroy() {
+        this.endsubs$.next();
+        this.endsubs$.complete();
+      }
     showOrder(orderId: string) {
         this.router.navigateByUrl(`order/${orderId}`);
     }
@@ -47,7 +54,10 @@ export class OrdersListComponent implements OnInit {
     }
 
     _getOrders() {
-        this.ordersService.getOrders().subscribe((orders) => {
+        this.ordersService
+            .getOrders()
+            .pipe(takeUntil(this.endsubs$))
+            .subscribe((orders) => {
             this.orders = orders;
         });
     }

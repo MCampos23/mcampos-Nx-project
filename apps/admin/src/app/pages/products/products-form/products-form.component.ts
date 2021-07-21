@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesService, Category, Product, ProductsService } from '@mcampos/products';
 import { MessageService } from 'primeng/api';
-import { timer } from 'rxjs';
+import { Subject, timer } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'admin-products-form',
@@ -12,7 +13,7 @@ import { timer } from 'rxjs';
   styles: [
   ]
 })
-export class ProductsFormComponent implements OnInit {
+export class ProductsFormComponent implements OnInit, OnDestroy {
   
   editMode = false;
   form!: FormGroup;
@@ -20,6 +21,7 @@ export class ProductsFormComponent implements OnInit {
   categories: Category[] = [];
   imageDisplay!: any;
   currentProductID!: string;
+  endsubs$: Subject<any> = new Subject();
 
 
   constructor(
@@ -35,6 +37,10 @@ export class ProductsFormComponent implements OnInit {
     this._checkEditMode();
     this._getCategories();
     this._initForm();
+  }
+  ngOnDestroy() {
+    this.endsubs$.next();
+    this.endsubs$.complete();
   }
   onSubmit(){
     this.isSubmitted = true;
@@ -64,7 +70,10 @@ export class ProductsFormComponent implements OnInit {
     }
   }
   private _updateProduct(productData: FormData){
-    this.productsService.updateProduct(productData, this.currentProductID ).subscribe(
+    this.productsService
+      .updateProduct(productData, this.currentProductID ) 
+      .pipe(takeUntil(this.endsubs$))
+      .subscribe(
       (product) => {
           this.messageService.add({ severity: 'success', summary: 'Categoría editada', detail: `El producto ${product.name} ha sido editado con éxito` });
           timer(2000)
@@ -80,7 +89,10 @@ export class ProductsFormComponent implements OnInit {
   
   }
   private _addProduct(productData: FormData){
-    this.productsService.createProduct(productData).subscribe(
+    this.productsService
+      .createProduct(productData)
+      .pipe(takeUntil(this.endsubs$))
+      .subscribe(
       () => {
           this.messageService.add({ severity: 'success', summary: 'Producto creado', detail: 'Producto creado con éxito' });
           timer(2000)
@@ -114,17 +126,22 @@ get productForm() {
 }
 
 private _getCategories(){
-  this.categoriesService.getCategories().subscribe(cats => {
+  this.categoriesService
+    .getCategories()
+    .pipe(takeUntil(this.endsubs$))
+    .subscribe(cats => {
     this.categories = cats
   })
 }
 private _checkEditMode() {
-  this.activatedRoute.params.subscribe((params) => {
+  this.activatedRoute.params.pipe(takeUntil(this.endsubs$)).subscribe((params) => {
       if (params.id) {
           this.editMode = true;
           this.currentProductID = params.id;
-          this.productsService.getProduct(params.id).subscribe((product) => {
-             
+          this.productsService
+            .getProduct(params.id)
+            .pipe(takeUntil(this.endsubs$))
+            .subscribe((product) => {             
            this.productForm.name.setValue(product.name);
            this.productForm.brand.setValue(product.brand);
            this.productForm.price.setValue(product.price);
@@ -135,8 +152,7 @@ private _checkEditMode() {
            this.productForm.richDescription.setValue(product.richDescription);
            this.imageDisplay = product.image;
            this.productForm.image.setValidators([]);
-           this.productForm.image.updateValueAndValidity();
-                          
+           this.productForm.image.updateValueAndValidity();                          
           });
       }
   });

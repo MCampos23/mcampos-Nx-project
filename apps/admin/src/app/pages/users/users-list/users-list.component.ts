@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User, UsersService } from '@mcampos/users'
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -10,9 +12,10 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   styles: [
   ]
 })
-export class UsersListComponent implements OnInit {
+export class UsersListComponent implements OnInit, OnDestroy {
   
   users: User[] = []
+  endsubs$: Subject<any> = new Subject();
 
 
   constructor(
@@ -29,7 +32,10 @@ export class UsersListComponent implements OnInit {
    this._getUsers()
   }
 
-  
+  ngOnDestroy() {
+    this.endsubs$.next();
+    this.endsubs$.complete();
+  }
   deleteUser(userId: string) {
 
     this.confirmationService.confirm({
@@ -37,7 +43,10 @@ export class UsersListComponent implements OnInit {
       header: 'Eliminar Usuario',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.usersService.deleteUser(userId).subscribe(
+        this.usersService
+          .deleteUser(userId)
+          .pipe(takeUntil(this.endsubs$))
+          .subscribe(
           () =>{
             this._getUsers()
             this.messageService.add(
@@ -64,7 +73,10 @@ export class UsersListComponent implements OnInit {
   } 
 
   private _getUsers(){
-    this.usersService.getUsers().subscribe( user => {
+    this.usersService
+      .getUsers()
+      .pipe(takeUntil(this.endsubs$))
+      .subscribe( user => {
       this.users = user;      
       })     
           
