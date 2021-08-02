@@ -30,8 +30,8 @@ export class FeaturedProductsComponent implements OnInit, OnDestroy {
                         .pipe(takeUntil(this.endSubs$))
                         .subscribe(products => {
           
-      this.featuredProducts = Object.values(products);
-      console.log(this.featuredProducts[0])
+      this.featuredProducts = Object.values(Object.values(products)[0]);
+   
     
     })
   }
