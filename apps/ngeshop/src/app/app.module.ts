@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { UiModule } from '@mcampos/ui';
@@ -16,11 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },
-    { path: 'products', component: ProductListComponent }
+   
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent, NavComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
     imports: [
         HttpClientModule,
         ProductsModule,
