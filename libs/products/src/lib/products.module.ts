@@ -7,6 +7,9 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component'
 import { ButtonModule } from 'primeng/button';
 import { ProductsListComponent } from './pages/products-list/products-list.component'
+import {CheckboxModule} from 'primeng/checkbox';
+import { FormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   {
@@ -17,7 +20,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes), ButtonModule],
+    imports: [FormsModule, CheckboxModule, CommonModule, RouterModule.forChild(routes), ButtonModule],
     declarations: [
       ProductsSearchComponent,
       CategoriesBannerComponent,

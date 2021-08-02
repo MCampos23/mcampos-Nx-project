@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from '../../models/category';
+import { Product } from '../../models/product';
+import { CategoriesService } from '../../services/categories.service';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'products-list',
@@ -8,9 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
 
-  constructor() { }
+  products: Product[] = []
+  categories: Category[] = []
+ 
+
+  constructor(
+    private productsService: ProductsService,
+    private categoriesService: CategoriesService) { }
 
   ngOnInit(): void {
+    this._getProducts();
+    this._getCategories();
   }
 
+
+  private _getProducts(categoriesFilter?: string[]){
+    this.productsService.getProducts(categoriesFilter).subscribe(resProducts => {
+      this.products = resProducts
+    })
+  }
+  private _getCategories(){
+    this.categoriesService.getCategories().subscribe(resCategories => {
+      this.categories = resCategories
+    })
+  }
+  categoryFilter(){
+    const selectedCategories = this.categories
+                                    .filter( category => category.checked)
+                                    .map(category => category.id)
+   // this._getProducts(selectedCategories)
+  }
 }
