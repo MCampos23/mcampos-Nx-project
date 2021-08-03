@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductsListComponent implements OnInit {
     products: Product[] = [];
     categories: Category[] = [];
-    isCategoryPage!: boolean;
+    isCategoryPage = false;
 
     constructor(
         private productsService: ProductsService, 
@@ -44,7 +44,6 @@ export class ProductsListComponent implements OnInit {
     }
     categoryFilter() {
         const selectedCategories: any = this.categories.filter((category) => category.checked).map((category) => category.id);
-
         this._getProducts(selectedCategories);
     }
 }
