@@ -13,8 +13,12 @@ export class GalleryComponent implements OnInit {
   selectedImageUrl = "" 
   constructor() { }
 
+get hasImages(){
+  return this.images?.length > 0
+}
+
   ngOnInit(): void {
-    if(this.images.length){
+    if(this.hasImages){
       this.selectedImageUrl = this.images[0]
     }
   }

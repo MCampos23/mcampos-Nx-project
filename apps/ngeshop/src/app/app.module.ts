@@ -21,11 +21,11 @@ const routes: Routes = [
 @NgModule({
     declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
     imports: [
+        RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
         HttpClientModule,
         ProductsModule,
         BrowserModule,
-        BrowserAnimationsModule,
-        RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
+        BrowserAnimationsModule,        
         UiModule,
         AccordionModule
     ],

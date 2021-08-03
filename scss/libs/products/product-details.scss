@@ -1,4 +1,5 @@
 .product {
+    padding: 0 10px;
     &-name {
         font-size: 1.8em;
     }
@@ -53,6 +54,7 @@
 }
 
 .product-rich-description {
+    padding: 0 10px;
     line-height: 1.6;
    li{
     list-style: disc;
