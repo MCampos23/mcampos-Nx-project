@@ -10,10 +10,17 @@ export class GalleryComponent implements OnInit {
 
   @Input() images: any
 
-  selectedImage = "https://productmanagementfestival.com/wp-content/uploads/2017/01/sell-your-product-online.jpg" 
+  selectedImageUrl = "" 
   constructor() { }
 
   ngOnInit(): void {
+    if(this.images.length){
+      this.selectedImageUrl = this.images[0]
+    }
+  }
+
+  changeSelectedImage(imageUrl: string){
+    this.selectedImageUrl = imageUrl
   }
 
 }
