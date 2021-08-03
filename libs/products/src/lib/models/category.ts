@@ -4,5 +4,4 @@ export class Category {
     icon? : string;
     color? : string; 
     checked? : boolean;
-
 }
