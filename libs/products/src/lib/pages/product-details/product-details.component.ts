@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -13,6 +13,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
 
+  
   product! : Product
   endSubs$ : Subject<any> = new Subject()
   quantity= 0

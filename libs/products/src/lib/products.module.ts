@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import {RatingModule} from 'primeng/rating';
 import {InputNumberModule} from 'primeng/inputnumber';
-
+import { UiModule } from '@mcampos/ui'
 
 const routes: Routes = [
   {
@@ -31,7 +31,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [FormsModule, CheckboxModule, CommonModule, RouterModule.forChild(routes), ButtonModule, RatingModule, InputNumberModule],
+    imports: [UiModule, FormsModule, CheckboxModule, CommonModule, RouterModule.forChild(routes), ButtonModule, RatingModule, InputNumberModule],
     declarations: [
       ProductsSearchComponent,
       CategoriesBannerComponent,
