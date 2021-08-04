@@ -8,29 +8,29 @@
                 <h4>Mi carrito: {{ 2 }} Item(s)</h4>
             </div>
             <div class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección de envío.</div>
-            <div class="cart-item">
+            <div class="cart-item p-mt-3" *ngFor="let item of cartItemDetailed">
                 <div class="p-grid p-fluid">
                     <div class="p-col-2 cart-item-image">
                         <img
-                            src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-1_large.png?format=jpg&quality=90&v=1530129113"
-                            alt=""
+                            [src]="item.product.image"
+                            [attr.alt]="item.product.name"
                         />
                     </div>
                     <div class="p-col-7">
-                        <div class="cart-item-name">Product Name</div>
-                        <div class="cart-item-price">Price</div>
+                        <div class="cart-item-name">{{ item.product.name }}</div>
+                        <div class="cart-item-price">{{ item.product.price }} €</div>
                         <div class="cart-item-remove">
-                            <p-button icon="pi pi-trash" (onclick)="deleteCartItem()"></p-button>
+                            <p-button icon="pi pi-trash" (onClick)="deleteCartItem(item)"></p-button>
                         </div>
                     </div>
                     <div class="p-col-3">
                         <div class="product-quantity">
                             <div class="p-field">
-                                <p-inputNumber inputId="quantity" mode="decimal" [min]="1" [max]="100" [showButtons]="true"> </p-inputNumber>
+                                <p-inputNumber [inputId]="item.product.id" mode="decimal" [min]="1" [max]="100" [showButtons]="true"> </p-inputNumber>
                             </div>
                             <div class="cart-item-subtotal">
                                 Subtotal:
-                                <span class="cart-item-subtotal-value"> 200 €</span>
+                                <span class="cart-item-subtotal-value"> {{ item.product.price * item.quantity}} €</span>
                             </div>
                         </div>
                     </div>

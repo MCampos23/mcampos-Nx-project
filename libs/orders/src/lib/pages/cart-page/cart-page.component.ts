@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartItem, cartItemDetailed } from '../../models/cart';
 import { CartService } from '../../services/cart.service';
+import { OrdersService } from '../../services/ordersService';
 
 @Component({
   selector: 'orders-cart-page',
@@ -10,20 +12,40 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartPageComponent implements OnInit {
 
+  cartItemDetailed : cartItemDetailed[] = []
   quantity = 0
+
   constructor(
     private route : Router,
-    private cartService : CartService
+    private cartService : CartService,
+    private ordersService : OrdersService
+
+
   ) { }
 
   ngOnInit(): void {
+    this._getCartDetails()
   }
+  private _getCartDetails(){
+    this.cartService.cart$.pipe().subscribe(respCart => {
+     this.cartItemDetailed = []
+      respCart.items?.forEach(cartItem => {
+        this.ordersService.getProduct(cartItem.productId).subscribe((resProduct)=> {
+          this.cartItemDetailed.push({
+            product: resProduct,
+            quantity: cartItem.quantity
+          })
+        })
+      })
+    })
+  }
+
 
   backToShop(){
     this.route.navigate(['/products'])
   }
-  deleteCartItem(){
-    console.log("Vas a borrarme y lo sabes...")
+  deleteCartItem(item : cartItemDetailed){
+    this.cartService.deleteCartItem(item.product.id)
   }
 
 }
