@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '@mcampos/users';
-import { OrderItem } from '../../models/order-item';
+import { ORDER_STATUS } from '@mcampos/orders';
+import { Order } from '../../models/order'
+import { Cart } from '../../models/cart'
+import { CartService } from '../../services/cart.service';
+import { OrdersService } from '../../services/ordersService';
 
 @Component({
   selector: 'orders-checkout-page',
@@ -12,16 +16,19 @@ export class CheckoutPageComponent implements OnInit {
   constructor(
     private router: Router,
     private usersService: UsersService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private cartService : CartService,
+    private ordersService : OrdersService
   ) {}
   checkoutFormGroup!: FormGroup;
   isSubmitted = false;
-  orderItems: OrderItem[] = [];
-  userId!: string;
-  countries = [];
+  orderItems: any[] = [];
+  userId = "60f5456f94117e2eb8241e96";
+  countries:any = [];
 
   ngOnInit(): void {
     this._initCheckoutForm();
+    this._getCartItems();
     this._getCountries();
   }
 
@@ -39,7 +46,18 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   private _getCountries() {
-    this.countries = this.usersService.getCountries();
+    this.countries = this.usersService.getCountries();  
+  }
+
+  private _getCartItems(){
+    const cart : Cart = this.cartService.getCart()
+    this.orderItems = cart.items?.map(item => {
+      return {
+        product!: item.productId,
+        quantity!: item.quantity
+      }
+    })
+    console.log( this.orderItems)
   }
 
   backToCart() {
@@ -61,10 +79,15 @@ export class CheckoutPageComponent implements OnInit {
     city: this.checkoutForm.city.value,
     country: this.checkoutForm.country.value,
     phone: this.checkoutForm.phone.value,
-    status: this.checkoutForm.status.value,
+    status: 0,
     user: this.userId,
     dateOrdered:`${Date.now()}`, 
     }
+
+    this.ordersService.createOrder(order).subscribe(()=>{
+      // redirect to thank you page // payment
+      console.log("Succesfully added")
+    })
   }
 
   get checkoutForm() {
