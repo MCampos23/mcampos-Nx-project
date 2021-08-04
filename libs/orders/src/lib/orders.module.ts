@@ -7,6 +7,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import {ButtonModule} from 'primeng/button';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { OrderSumaryComponent } from './components/order-sumary/order-sumary.component';
 
 const routes : Routes = [
   {
@@ -19,7 +20,8 @@ const routes : Routes = [
     imports: [InputNumberModule, ButtonModule, CommonModule, BadgeModule, RouterModule.forChild(routes)],
     declarations: [
       CartOrdersComponent,
-      CartPageComponent
+      CartPageComponent,
+      OrderSumaryComponent
     ],
     exports: [
       CartOrdersComponent
