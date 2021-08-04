@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil, take } from 'rxjs/operators';
 import { CartService } from '../../services/cart.service';
@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   ]
 })
 export class OrderSumaryComponent implements OnInit, OnDestroy {
+
+ @Input() isCheckout? : boolean
 
   endSubs$: Subject<any> = new Subject()
   totalPrice = 0
@@ -46,4 +48,7 @@ export class OrderSumaryComponent implements OnInit, OnDestroy {
     });
   }
 
+  navigateToCheckout(){
+    this.router.navigate(['/checkout'])
+  }
 }

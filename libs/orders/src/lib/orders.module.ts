@@ -8,20 +8,32 @@ import { RouterModule, Routes } from '@angular/router';
 import {ButtonModule} from 'primeng/button';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { OrderSumaryComponent } from './components/order-sumary/order-sumary.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DropdownModule } from 'primeng/dropdown';
+
 
 const routes : Routes = [
   {
     path: 'cart',
     component: CartPageComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutPageComponent
   }
 ]
 
 @NgModule({
-    imports: [InputNumberModule, ButtonModule, CommonModule, BadgeModule, RouterModule.forChild(routes)],
+    imports: [InputTextModule, InputMaskModule, DropdownModule, ReactiveFormsModule,
+       InputNumberModule, ButtonModule, CommonModule, BadgeModule, RouterModule.forChild(routes), FormsModule],
     declarations: [
       CartOrdersComponent,
       CartPageComponent,
-      OrderSumaryComponent
+      OrderSumaryComponent,
+      CheckoutPageComponent
     ],
     exports: [
       CartOrdersComponent

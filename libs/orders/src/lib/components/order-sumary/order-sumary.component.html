@@ -14,7 +14,7 @@
             <span>{{ totalPrice}} €</span>
         </div>
     </div>
-    <div class="checkout-button">
-        <p-button label="Realizar pedido"></p-button>
+    <div *ngIf="!isCheckout" class="checkout-button">
+        <p-button (click)="navigateToCheckout()"  label="Realizar pedido"></p-button>
     </div>
 </div>
