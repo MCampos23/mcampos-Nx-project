@@ -1,0 +1,41 @@
+<div class="cart-page">
+    <div class="p-grid">
+        <div class="p-col-8">
+            <div>
+                <p-button class="backToShop" label="Seguir comprando" icon="pi pi-arrow-left" (click)="backToShop()"></p-button>
+            </div>
+            <div>
+                <h4>Mi carrito: {{ 2 }} Item(s)</h4>
+            </div>
+            <div class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección de envío.</div>
+            <div class="cart-item">
+                <div class="p-grid p-fluid">
+                    <div class="p-col-2 cart-item-image">
+                        <img
+                            src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-1_large.png?format=jpg&quality=90&v=1530129113"
+                            alt=""
+                        />
+                    </div>
+                    <div class="p-col-7">
+                        <div class="cart-item-name">Product Name</div>
+                        <div class="cart-item-price">Price</div>
+                        <div class="cart-item-remove">
+                            <p-button icon="pi pi-trash" (onclick)="deleteCartItem()"></p-button>
+                        </div>
+                    </div>
+                    <div class="p-col-3">
+                        <div class="product-quantity">
+                            <div class="p-field">
+                                <p-inputNumber inputId="quantity" mode="decimal" [min]="1" [max]="100" [showButtons]="true"> </p-inputNumber>
+                            </div>
+                            <div class="cart-item-subtotal">
+                                Subtotal:
+                                <span class="cart-item-subtotal-value"> 200 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
