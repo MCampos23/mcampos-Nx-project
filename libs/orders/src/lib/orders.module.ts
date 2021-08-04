@@ -13,6 +13,7 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
 
 
 const routes : Routes = [
@@ -23,6 +24,10 @@ const routes : Routes = [
   {
     path: 'checkout',
     component: CheckoutPageComponent
+  },
+  {
+    path: 'success',
+    component: ThankYouComponent
   }
 ]
 
@@ -33,7 +38,8 @@ const routes : Routes = [
       CartOrdersComponent,
       CartPageComponent,
       OrderSumaryComponent,
-      CheckoutPageComponent
+      CheckoutPageComponent,
+      ThankYouComponent
     ],
     exports: [
       CartOrdersComponent

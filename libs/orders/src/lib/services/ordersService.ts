@@ -25,6 +25,7 @@ export class OrdersService {
   }
 
   createOrder(order : Order): Observable<Order> {
+    console.log(order)
     return this.http.post<Order>(this.apiURLOrders, order)
   }
   updateOrder(orderStatus: {status: string}, orderId:string | undefined ): Observable<Order>{
