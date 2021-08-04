@@ -12,7 +12,10 @@ import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './shared/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
-import { OrdersModule } from '@mcampos/orders'
+import { OrdersModule } from '@mcampos/orders';
+import { ToastModule } from 'primeng/toast';
+import { MessagesComponent } from './shared/messages/messages.component';
+import { MessageService } from 'primeng/api';
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },
@@ -20,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent],
     imports: [
         RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
         HttpClientModule,
@@ -30,9 +33,13 @@ const routes: Routes = [
         UiModule,
         AccordionModule,
         OrdersModule,
+        ToastModule
     ],
 
-    providers: [],
-    bootstrap: [AppComponent]
+    providers: [MessageService],
+    bootstrap: [AppComponent],
+    exports: [
+      MessagesComponent
+    ]
 })
 export class AppModule {}

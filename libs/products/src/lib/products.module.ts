@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import {RatingModule} from 'primeng/rating';
 import {InputNumberModule} from 'primeng/inputnumber';
-import { UiModule } from '@mcampos/ui'
+import { UiModule } from '@mcampos/ui';
+
+
 
 const routes: Routes = [
   {

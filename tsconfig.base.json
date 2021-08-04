@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mcampos/ngeshop": ["ngeshop/src/app.module.ts"],
       "@mcampos/orders": ["libs/orders/src/index.ts"],
       "@mcampos/products": ["libs/products/src/index.ts"],
       "@mcampos/ui": ["libs/ui/src/index.ts"],
