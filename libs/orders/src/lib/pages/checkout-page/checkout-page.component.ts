@@ -51,6 +51,20 @@ export class CheckoutPageComponent implements OnInit {
     if (this.checkoutFormGroup.invalid) {
       return;
     }
+
+    const order : Order = {
+
+    orderItems: this.orderItems,
+    shippingAddress1: this.checkoutForm.street.value,
+    shippingAddress2: this.checkoutForm.apartment.value,
+    zip: this.checkoutForm.zip.value,
+    city: this.checkoutForm.city.value,
+    country: this.checkoutForm.country.value,
+    phone: this.checkoutForm.phone.value,
+    status: this.checkoutForm.status.value,
+    user: this.userId,
+    dateOrdered:`${Date.now()}`, 
+    }
   }
 
   get checkoutForm() {
