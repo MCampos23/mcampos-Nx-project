@@ -8,20 +8,27 @@ export const CART_KEY = 'cart';
     providedIn: 'root'
 })
 export class CartService {
-    
-    cart$ : BehaviorSubject<Cart> = new BehaviorSubject(this.getCart());
-    
+    cart$: BehaviorSubject<Cart> = new BehaviorSubject(this.getCart());
+
     constructor() {}
 
     initCartLocalStorage() {
-      const cart : Cart = this.getCart()
-      if (!cart){
-        const initialCart: any = {
+        const cart: Cart = this.getCart();
+        if (!cart) {
+            const initialCart: any = {
+                items: []
+            };
+            const initialCartJson = JSON.stringify(initialCart);
+            localStorage.setItem(CART_KEY, initialCartJson);
+        }
+    }
+    emptyCart() {
+        const initialCart = {
             items: []
         };
-        const initialCartJson = JSON.stringify(initialCart);
-        localStorage.setItem(CART_KEY, initialCartJson);
-      }
+        const intialCartJson = JSON.stringify(initialCart);
+        localStorage.setItem(CART_KEY, intialCartJson);
+        this.cart$.next(initialCart);
     }
 
     getCart() {
@@ -29,15 +36,15 @@ export class CartService {
         const cart: Cart = JSON.parse(cartJsonString);
         return cart;
     }
-    
+
     setCartItem(cartItem: CartItem, updateCartItem?: boolean): Cart {
         const cart = this.getCart();
         const cartItemExists = cart.items?.find((item) => item.productId === cartItem.productId);
         if (cartItemExists) {
             cart.items?.map((item) => {
                 if (item.productId === cartItem.productId) {
-                    if(updateCartItem){
-                        item.quantity = cartItem.quantity
+                    if (updateCartItem) {
+                        item.quantity = cartItem.quantity;
                     } else {
                         item.quantity = item.quantity + cartItem.quantity;
                     }
@@ -48,23 +55,22 @@ export class CartService {
         }
         const cartJson = JSON.stringify(cart);
         localStorage.setItem(CART_KEY, cartJson);
-        this.cart$.next(cart)
+        this.cart$.next(cart);
         return cart;
     }
 
-    deleteCartItem(productId : string) {
-        const cart = this.getCart()
-        console.log(cart)
-        const newCart = cart.items.filter((item) => {    
-            item.productId == productId            
-        })
-        console.log(newCart)
+    deleteCartItem(productId: string) {
+        const cart = this.getCart();
+        console.log(cart);
+        const newCart = cart.items.filter((item) => {
+            item.productId == productId;
+        });
+        console.log(newCart);
 
-         cart.items = newCart
+        cart.items = newCart;
         // const cartJsonString = JSON.stringify(cart)
         // localStorage.setItem(CART_KEY, cartJsonString)
 
         // this.cart$.next(cart)
     }
-
 }
