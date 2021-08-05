@@ -45,7 +45,7 @@ export class CartPageComponent implements OnInit {
     this.route.navigate(['/products'])
   }
   deleteCartItem(item : cartItemDetailed){
-    this.cartService.deleteCartItem(item.product.id)
+   this.cartService.deleteCartItem(item.product.id)
   }
 
   updateCartItemQuantity(event: any, cartItem: any){
