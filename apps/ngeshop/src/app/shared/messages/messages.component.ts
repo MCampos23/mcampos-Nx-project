@@ -3,7 +3,7 @@ import { CartService } from '@mcampos/orders';
 import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'mcampos-messages',
+  selector: 'ngshop-messages',
   templateUrl: './messages.component.html',
   styles: [
   ]

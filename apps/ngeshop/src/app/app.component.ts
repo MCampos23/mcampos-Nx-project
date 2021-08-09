@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'mcampos-root',
+    selector: 'ngshop-root',
     templateUrl: './app.component.html'
   
 })

@@ -10,7 +10,7 @@
                     "error",
                     {
                         "type": "attribute",
-                        "prefix": "ngshop",
+                        "prefix": "ngeshop",
                         "style": "camelCase"
                     }
                 ],

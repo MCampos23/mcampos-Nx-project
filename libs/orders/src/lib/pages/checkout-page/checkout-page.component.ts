@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '@mcampos/users';
-import { ORDER_STATUS } from '@mcampos/orders';
 import { Order } from '../../models/order';
 import { Cart } from '../../models/cart';
 import { CartService } from '../../services/cart.service';
@@ -80,13 +79,15 @@ export class CheckoutPageComponent implements OnInit {
             user: this.userId,
             dateOrdered: `${Date.now()}`
         };
-       
+
         this.ordersService.createOrder(order).subscribe(
             () => {
-                this.cartService.emptyCart()
-               this.router.navigate(['/success']);
+                
+                this.cartService.emptyCart();
+                this.router.navigate(['/success']);
             },
             () => {
+              
                 console.log('Hubo algún error en el pedido');
             }
         );

@@ -10,8 +10,6 @@ export const CART_KEY = 'cart';
 export class CartService {
     cart$: BehaviorSubject<Cart> = new BehaviorSubject(this.getCart());
 
-    constructor() {}
-
     initCartLocalStorage() {
         const cart: Cart = this.getCart();
         if (!cart) {
