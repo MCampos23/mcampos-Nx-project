@@ -1,28 +1,45 @@
 .contact-page {
     min-height: 500px;
-  
+
     button {
-      background-color: $primary-color;
-      border: 0;
-      &:enabled:hover {
-          background-color: $primary-color-dark;
-      }
-    }
-  
-    .contact {
-      &-form {
-        margin-top: 25px;
-      }
-  
-      &-button {
-        margin-top: 20px;
-        button {
-          width: 100%;
-          &:hover {
-              background-color: $primary-color;
-          }
+        margin-top: 30px;
+        margin-bottom: 0;
+        background-color: $primary-color;
+        border: 0;
+        &:enabled:hover {
+            background-color: $primary-color-dark;
         }
-      }
     }
-  }
-  
+    
+
+    &-title {
+        color: var(--surface-700);
+        font-size: 2.5em;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 6px;
+        margin-top: 15px;
+    }
+
+    .contact {
+        &-form {
+            margin-top: 25px;
+        }
+
+        &-button {
+            margin-top: 20px;
+            button {
+                width: 100%;
+                &:hover {
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
+    .image {
+        width: 70%;
+        margin-left: 50px;
+        margin-top: 80px;
+        opacity: 0.8;
+    }
+}
