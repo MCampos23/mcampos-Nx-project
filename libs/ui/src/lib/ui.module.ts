@@ -4,8 +4,10 @@ import { BannerComponent } from './banner/banner.component';
 import {ButtonModule} from 'primeng/button';
 import { GalleryComponent } from './gallery/gallery.component';
 
+
+
 @NgModule({
-    imports: [CommonModule, ButtonModule],
+    imports: [ CommonModule, ButtonModule],
     declarations: [
       BannerComponent,
       GalleryComponent
