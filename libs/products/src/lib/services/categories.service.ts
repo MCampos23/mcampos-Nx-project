@@ -29,7 +29,7 @@ export class CategoriesService {
   }
 
   deleteCategory(categoryId: string): Observable<any>{
-    return this.http.delete<Object>(`${this.apiURLCategories}/${categoryId}`, )
+    return this.http.delete<Category>(`${this.apiURLCategories}/${categoryId}`, )
   }
 }
 

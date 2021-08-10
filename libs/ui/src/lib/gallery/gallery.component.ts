@@ -11,7 +11,6 @@ export class GalleryComponent implements OnInit {
   @Input() images: any
 
   selectedImageUrl = "" 
-  constructor() { }
 
 get hasImages(){
   return this.images?.length > 0

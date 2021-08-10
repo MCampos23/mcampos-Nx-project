@@ -5,7 +5,7 @@ import { Category } from '../../models/category';
 import { CategoriesService } from '../../services/categories.service';
 
 @Component({
-  selector: 'products-categories-banner',
+  selector: 'mcampos-categories-banner',
   templateUrl: './categories-banner.component.html',
   styles: [
   ]

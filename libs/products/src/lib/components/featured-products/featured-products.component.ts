@@ -5,7 +5,7 @@ import { Product } from '../../models/product';
 import { ProductsService } from '../../services/products.service';
 
 @Component({
-  selector: 'products-featured-products',
+  selector: 'mcampos-featured-products',
   templateUrl: './featured-products.component.html',
   styles: [
   ]

@@ -7,7 +7,7 @@ import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'products-list',
+    selector: 'mcampos-list',
     templateUrl: './products-list.component.html',
     styles: []
 })
