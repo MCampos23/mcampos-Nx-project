@@ -16,14 +16,21 @@ import { OrdersModule } from '@mcampos/orders';
 import { ToastModule } from 'primeng/toast';
 import { MessagesComponent } from './shared/messages/messages.component';
 import { MessageService } from 'primeng/api';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {InputMaskModule} from 'primeng/inputmask';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },
+    { path: 'contact', component: ContactPageComponent },
    
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent, ContactPageComponent],
     imports: [
         RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
         HttpClientModule,
@@ -33,7 +40,11 @@ const routes: Routes = [
         UiModule,
         AccordionModule,
         OrdersModule,
-        ToastModule
+        ToastModule,
+        InputTextModule,
+        ButtonModule,
+        InputMaskModule,
+        InputTextareaModule
     ],
 
     providers: [MessageService],

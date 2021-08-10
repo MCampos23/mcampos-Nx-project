@@ -67,6 +67,7 @@ export class CheckoutPageComponent implements OnInit {
         if (this.checkoutFormGroup.invalid) {
             return;
         }
+
         const order: Order = {
             orderItems: this.orderItems,
             shippingAddress1: this.checkoutForm.street.value,
@@ -80,14 +81,14 @@ export class CheckoutPageComponent implements OnInit {
             dateOrdered: `${Date.now()}`
         };
 
+      
         this.ordersService.createOrder(order).subscribe(
             () => {
-                
-                this.cartService.emptyCart();
-                this.router.navigate(['/success']);
+                console.log(order)
+                // this.cartService.emptyCart();
+                // this.router.navigate(['/success']);
             },
-            () => {
-              
+            () => {              
                 console.log('Hubo algún error en el pedido');
             }
         );

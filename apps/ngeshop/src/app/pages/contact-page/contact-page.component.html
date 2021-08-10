@@ -1,0 +1,42 @@
+<div class="contact-page">
+    <div>
+      <p-button label="Volver al carrrito" icon="pi pi-arrow-left" (onClick)="backToCart()"></p-button>
+    </div>
+    <h3>Ponte en contacto con nosotros</h3>
+    <div class="p-grid contact-form">
+      <div class="p-col-8">
+        <form>
+          <div class="p-fluid p-formgrid p-grid p-p-5">
+            <div class="p-field p-col-6">
+              <label for="name">Nombre</label>
+              <input formControlName="name" id="name" type="text" pInputText />
+              <small *ngIf="checkoutForm.name.invalid && isSubmitted" class="p-error"
+                >El nombre es obligatorio</small
+              >
+            </div>
+            <div class="p-field p-col-6">
+              <label for="email">Email</label>
+              <input formControlName="email" id="email" type="text" pInputText />
+              <small *ngIf="checkoutForm.email.invalid && isSubmitted" class="p-error"
+                ><span *ngIf="checkoutForm.email.errors.required">El email es obligatorio</span>
+                <span *ngIf="checkoutForm.email.errors.email">El email es incorrecto</span></small
+              >
+            </div>
+            
+            <div class="p-field p-col-12">
+                <label class="p-mb-3">Mensaje</label><br/>
+                <textarea [rows]="5" [cols]="30" pInputTextarea></textarea>                
+            </div>
+            <div class="p-field p-col-12">
+                <p-button class="p-field" label="Enviar"></p-button>
+            </div>
+          </div>
+        </form>
+      </div>    
+      <div class="p-col-4">
+          <img src="assets/images/contact-us.png" style="width: 70%; margin-left: 50px; margin-top: 30px; opacity: 0.8;" alt="">
+      </div>
+    
+    </div>
+  </div>
+  
