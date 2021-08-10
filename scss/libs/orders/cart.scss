@@ -3,16 +3,17 @@
     button {
         background-color: $primary-color;
         border: 0;
+        font-size: 0.9em;
         &:enabled:hover {
             background-color: $primary-color-dark;
         }
     }
-    
+    .backToShop{
+        margin-top: 20px;
 
-    .backToShop {
-        background-color: $primary-color;
     }
-    .cart {
+    
+       .cart {
         &-shipping {
             color: var(--green-700);
         }
@@ -54,5 +55,8 @@
                 }
             }
         }
+    }
+    .summary {
+        margin-top: 110px;
     }
 }

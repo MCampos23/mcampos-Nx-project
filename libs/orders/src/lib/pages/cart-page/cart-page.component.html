@@ -1,9 +1,7 @@
 <div class="cart-page">
     <div class="p-grid">
         <div class="p-col-8">
-            <div>
-                <p-button class="backToShop" label="Seguir comprando" icon="pi pi-arrow-left" (click)="backToShop()"></p-button>
-            </div>
+         
             <div>
                 <h4>Mi carrito: {{ 2 }} Item(s)</h4>
             </div>
@@ -45,8 +43,12 @@
                 </div>
             </div>
         </div>
-        <div class="p-col-4">
+        
+        <div class="p-col-4 summary">
             <orders-order-sumary></orders-order-sumary>
         </div>
+    </div>
+    <div class="backToShop">
+        <p-button label="Seguir comprando" icon="pi pi-arrow-left" (click)="backToShop()"></p-button>
     </div>
 </div>
