@@ -1,9 +1,8 @@
 <div class="checkout-page">
-  <div>
-    <p-button label="Volver al carrrito" icon="pi pi-arrow-left" (onClick)="backToCart()"></p-button>
-  </div>
+  
   <div class="p-grid checkout-form">
     <div class="p-col-8">
+      <h3 class="checkout-page-title">Completa tus datos del pedido</h3>
       <form [formGroup]="checkoutFormGroup">
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col-4">
@@ -81,11 +80,14 @@
         </div>
       </form>
     </div>
-    <div class="p-col-4">
+    <div class="p-col-4 summary">
       <orders-order-sumary [isCheckout]="true"></orders-order-sumary>
       <div class="checkout-button">
         <p-button label="Realizar pedido" (onClick)="placeOrder()"></p-button>
       </div>
     </div>
+  </div>
+  <div class="backToCart">
+    <p-button label="Volver al carrrito" styleClass="p-button-sm" icon="pi pi-arrow-left" (onClick)="backToCart()"></p-button>
   </div>
 </div>
