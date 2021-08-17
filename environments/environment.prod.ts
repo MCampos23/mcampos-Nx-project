@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiURL: ""
+    apiURL: "https://mcampos-ngshop.herokuapp.com/api/v1/"
 };
