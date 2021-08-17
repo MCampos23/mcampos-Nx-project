@@ -25,7 +25,9 @@
         "update": "nx migrate latest",
         "workspace-generator": "nx workspace-generator",
         "dep-graph": "nx dep-graph",
-        "help": "nx help"
+        "help": "nx help",
+        "build-prod-ngeshop":"nx build ngeshop --prod --output-path ../ngeshop --base-href /ngeshop/",
+        "build-prod-admin":"nx build admin --prod --output-path ../admin --base-href /admin/"
     },
     "private": true,
     "dependencies": {
