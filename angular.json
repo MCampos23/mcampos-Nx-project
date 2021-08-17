@@ -154,7 +154,13 @@
                                     "with": "environments/environment.prod.ts"
                                 }
                             ],
-                            "outputHashing": "all"
+                            "outputHashing": "all",
+                            "buildOptimizer": true,
+                            "optimization": true,
+                            "vendorChunk": false,
+                            "extractLicenses": true,
+                            "sourceMap": false,
+                            "namedChunks": false
                         },
                         "development": {
                             "buildOptimizer": false,
