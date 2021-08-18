@@ -33,14 +33,14 @@ export class CheckoutPageComponent implements OnInit {
 
     private _initCheckoutForm() {
         this.checkoutFormGroup = this.formBuilder.group({
-            name: ['asdf', Validators.required],
-            email: ['asd@asdf', [Validators.email, Validators.required]],
-            phone: ['34605675936', Validators.required],
-            city: ['asdf', Validators.required],
-            country: ['asdf', Validators.required],
-            zip: ['asdf', Validators.required],
-            apartment: ['asdf', Validators.required],
-            street: ['asdf', Validators.required]
+            name: ['', Validators.required],
+            email: ['', [Validators.email, Validators.required]],
+            phone: ['', Validators.required],
+            city: ['', Validators.required],
+            country: ['', Validators.required],
+            zip: ['', Validators.required],
+            apartment: ['', Validators.required],
+            street: ['', Validators.required]
         });
     }
 
@@ -67,11 +67,11 @@ export class CheckoutPageComponent implements OnInit {
         if (this.checkoutFormGroup.invalid) {
             return;
         }
-
+        
         const order: Order = {
             orderItems: this.orderItems,
-            shippingAddress1: this.checkoutForm.street.value,
-            shippingAddress2: this.checkoutForm.apartment.value,
+            street: this.checkoutForm.street.value,
+            shippingAddress1: this.checkoutForm.apartment.value,
             zip: this.checkoutForm.zip.value,
             city: this.checkoutForm.city.value,
             country: this.checkoutForm.country.value,
@@ -80,13 +80,12 @@ export class CheckoutPageComponent implements OnInit {
             user: this.userId,
             dateOrdered: `${Date.now()}`
         };
-
-      
+        
+              
         this.ordersService.createOrder(order).subscribe(
             () => {
-                console.log(order)
-                // this.cartService.emptyCart();
-                // this.router.navigate(['/success']);
+                this.cartService.emptyCart();
+                this.router.navigate(['/success']);
             },
             () => {              
                 console.log('Hubo algún error en el pedido');
