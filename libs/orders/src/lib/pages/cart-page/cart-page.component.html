@@ -1,6 +1,6 @@
 <div class="cart-page">
     <div class="p-grid">
-        <div class="p-col-12 p-md-8">
+        <div class="p-col-12 p-lg-8">
          
             <div>
                 <h4>Mi carrito: {{ 2 }} Item(s)</h4>
@@ -8,20 +8,20 @@
             <div class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección de envío.</div>
             <div class="cart-item p-mt-3" *ngFor="let item of cartItemDetailed">
                 <div class="p-grid p-fluid">
-                    <div class="p-col-2 cart-item-image">
+                    <div class="p-col-6 p-lg-2 cart-item-image">
                         <img
                             [src]="item.product.image"
                             [attr.alt]="item.product.name"
                         />
                     </div>
-                    <div class="p-col-7">
+                    <div class="p-col-6 p-lg-7">
                         <div class="cart-item-name">{{ item.product.name }}</div>
                         <div class="cart-item-price">{{ item.product.price |currency:'EUR'}}</div>
                         <div class="cart-item-remove">
                             <p-button icon="pi pi-trash" (onClick)="deleteCartItem(item)"></p-button>
                         </div>
                     </div>
-                    <div class="p-col-3">
+                    <div class="p-colo-12 p-lg-3">
                         <div class="product-quantity">
                             <div class="p-field">
                                 <p-inputNumber 
@@ -44,7 +44,7 @@
             </div>
         </div>
         
-        <div class="p-md-4 p-col-12 summary">
+        <div class="p-lg-4 p-col-12 summary">
             <orders-order-sumary></orders-order-sumary>
         </div>
     </div>

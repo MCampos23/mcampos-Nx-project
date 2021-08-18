@@ -33,15 +33,23 @@
 @import '~animate.css/animate.css';
 
 .container {
-    width: 1200px;
-    padding: 15px;
+    width: 70%;
+    padding: 35px;
     margin: 0 auto;
     background-color: var(--surface-100 );
 }
 
+@media (max-width: 1522px) {
+    .container {
+        width: 90%;
+        padding: 35px;
+        margin: 0 auto;
+        background-color: var(--surface-100 );
+    }
+}
 @media (max-width: 768px) {
     .container {
-        width: 1000px;
+        width: 100%;
         padding: 55px;
         margin: 0 auto;
         background-color: var(--surface-100 );

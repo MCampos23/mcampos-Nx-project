@@ -1,18 +1,18 @@
 <div class="contact-page">
     
     <div class="p-grid contact-form">
-        <div class="p-col-8">
+        <div class="p-md-8 p-col-12">
           <h3 class="contact-page-title">Ponte en contacto con nosotros</h3>
         <form>
           <div class="p-fluid p-formgrid p-grid p-p-5">
-            <div class="p-field p-col-6">
+            <div class="p-field p-col-12 p-md-6">
               <label for="name">Nombre</label>
               <input formControlName="name" id="name" type="text" pInputText />
               <small *ngIf="checkoutForm.name.invalid && isSubmitted" class="p-error"
                 >El nombre es obligatorio</small
               >
             </div>
-            <div class="p-field p-col-6">
+            <div class="p-field p-col-12 p-md-6">
               <label for="email">Email</label>
               <input formControlName="email" id="email" type="text" pInputText />
               <small *ngIf="checkoutForm.email.invalid && isSubmitted" class="p-error"
@@ -31,7 +31,7 @@
           </div>
         </form>
       </div>    
-      <div class="p-col-4">
+      <div class="p-col-4 p-d-none p-d-md-block">
           <img class="image" src="assets/images/contact-us.png" alt="">
       </div>
     
