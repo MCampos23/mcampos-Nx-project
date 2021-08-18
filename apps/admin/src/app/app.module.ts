@@ -38,6 +38,8 @@ import { TagModule } from 'primeng/tag';
 import { FieldsetModule } from 'primeng/fieldset';
 import { AppRoutingModule } from './app-routing.module';
 
+
+
 const UX_MODULE = [
     FieldsetModule,
     TagModule,
@@ -82,7 +84,8 @@ const UX_MODULE = [
         UX_MODULE,
         AppRoutingModule,
     ],
-    providers: [CategoriesService, MessageService, ConfirmationService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+    providers: [CategoriesService, MessageService, ConfirmationService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, 
+      ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
