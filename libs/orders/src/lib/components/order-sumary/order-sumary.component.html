@@ -2,7 +2,7 @@
     <h3>Resumen del pedido</h3>
     <div class="summary-price">
         <span>Precio de los productos</span>
-        <span>{{ totalPrice}} €</span>
+        <span>{{ totalPrice |currency:'EUR'}}</span>
     </div>
     <div class="summary-price">
         <span>Gastos de envío</span>
@@ -11,7 +11,7 @@
     <div class="to-checkout">
         <div class="summary-price">
             <span>Precio total</span>
-            <span>{{ totalPrice}} €</span>
+            <span>{{ totalPrice |currency:'EUR'}}</span>
         </div>
     </div>
     <div *ngIf="!isCheckout" class="checkout-button">
