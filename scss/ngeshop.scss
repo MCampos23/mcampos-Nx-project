@@ -38,3 +38,12 @@
     margin: 0 auto;
     background-color: var(--surface-100 );
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 1000px;
+        padding: 55px;
+        margin: 0 auto;
+        background-color: var(--surface-100 );
+    }
+}
