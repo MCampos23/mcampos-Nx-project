@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
+
 
 @Component({
   selector: 'ngshop-nav',
@@ -6,9 +8,17 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
+  items: MenuItem[];
 
   constructor() { }
 
+  ngOnInit(){
+    this.items = [
+      {label: 'Inicio', url: '/'},
+      {label: 'Productos', url: '/products'},
+      {label: 'Contacto', url: '/contact'}
+  ];
+  }
  
 }

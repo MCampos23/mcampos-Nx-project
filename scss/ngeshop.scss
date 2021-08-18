@@ -47,3 +47,11 @@
         background-color: var(--surface-100 );
     }
 }
+@media (max-width: 534px) {
+    .container {
+        width: 500px;
+        padding: 25px;
+        margin: 0 auto;
+        background-color: var(--surface-100 );
+    }
+}
