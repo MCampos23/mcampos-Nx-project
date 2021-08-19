@@ -11,3 +11,25 @@ header {
         padding-top:45px;
     }
 }
+@media (max-width:650px){
+    header {
+        .logo{
+            img{
+                width: 55px;
+                margin-left: 5px;
+            }
+        }
+        .products-search{
+            width: 200px;
+            font-size: 12px;
+        }
+        .search,
+        .tools{
+            padding-top: 20px;
+        }
+        .navigation{
+            padding-top: 30px;
+        }
+    }
+
+}
