@@ -14,7 +14,7 @@
         </div>
         <div [ngClass]="{'p-sm-9' : !isCategoryPage,'p-col-12' : isCategoryPage}">
             <div class="p-grid" *ngIf="products">
-                <div [ngClass]="{'p-col-12 p-sm-6 p-lg-4 p-p-5 p-p-sm-1' : !isCategoryPage,'p-col-12 p-sm-6 p-md-4 p-lg-3 p-p-5 p-p-sm-1' : isCategoryPage}" *ngFor="let product of products">
+                <div [ngClass]="{'p-col-12 p-lg-4 ' : !isCategoryPage,'p-col-12  p-md-4 p-lg-3 p-p-5 ' : isCategoryPage}" *ngFor="let product of products">
                     <mcampos-product-item [product]="product"></mcampos-product-item>
                 </div>
             </div>
