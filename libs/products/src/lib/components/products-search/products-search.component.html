@@ -1,6 +1,6 @@
 <div class="products-search">
-    <input type="text" placeholder="Busca un producto" class="products-search-input" name="search" id="search" />
-    <button class="search-button">
+    <input type="text" placeholder="Busca un producto" class="products-search-input" name="search" id="search" #search />
+    <button (click)="searchProduct(search.value)" class="search-button">
         <i class="pi pi-search"></i>
     </button>
 </div>
