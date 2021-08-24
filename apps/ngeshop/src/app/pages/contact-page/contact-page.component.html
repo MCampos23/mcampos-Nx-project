@@ -3,30 +3,33 @@
     <div class="p-grid contact-form">
         <div class="p-md-8 p-col-12">
           <h3 class="contact-page-title">Ponte en contacto con nosotros</h3>
-        <form>
+        <form [formGroup]="contactFormGroup"> 
           <div class="p-fluid p-formgrid p-grid p-p-5">
             <div class="p-field p-col-12 p-md-6">
               <label for="name">Nombre</label>
               <input formControlName="name" id="name" type="text" pInputText />
-              <small *ngIf="checkoutForm.name.invalid && isSubmitted" class="p-error"
+              <small *ngIf="contactForm.name.invalid && isSubmitted" class="p-error"
                 >El nombre es obligatorio</small
               >
             </div>
             <div class="p-field p-col-12 p-md-6">
               <label for="email">Email</label>
               <input formControlName="email" id="email" type="text" pInputText />
-              <small *ngIf="checkoutForm.email.invalid && isSubmitted" class="p-error"
-                ><span *ngIf="checkoutForm.email.errors.required">El email es obligatorio</span>
-                <span *ngIf="checkoutForm.email.errors.email">El email es incorrecto</span></small
+              <small *ngIf="contactForm.email.invalid && isSubmitted" class="p-error"
+                ><span *ngIf="contactForm.email.errors.required">El email es obligatorio</span>
+                <span *ngIf="contactForm.email.errors.email">El email es incorrecto</span></small
               >
             </div>
             
             <div class="p-field p-col-12">
-                <label class="p-mb-3">Mensaje</label><br/>
-                <textarea placeholder="Escribe aquí tu mensaje" [rows]="5" [cols]="30" pInputTextarea></textarea>                
+                <label for="message" class="p-mb-3">Mensaje</label><br/>
+                <textarea formControlName="message" placeholder="Escribe aquí tu mensaje" [rows]="5" [cols]="30" pInputTextarea></textarea> 
+                <small *ngIf="contactForm.message.invalid && isSubmitted" class="p-error"
+                >El mensaje es obligatorio</small
+              >               
             </div>
             <div class="p-field p-col-12">
-                <p-button class="p-field" label="Enviar"></p-button>
+                <p-button class="p-field" label="Enviar" (onClick)="sendReq()"></p-button>
             </div>
           </div>
         </form>

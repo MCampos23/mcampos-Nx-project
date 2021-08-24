@@ -22,19 +22,22 @@ import {ButtonModule} from 'primeng/button';
 import {InputMaskModule} from 'primeng/inputmask';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MenubarModule} from 'primeng/menubar';
+import { ContactPageFormSentComponent } from './pages/contact-page-form-sent/contact-page-form-sent.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },
-    { path: 'contact', component: ContactPageComponent }
+    { path: 'contact', component: ContactPageComponent },
+    { path: 'contact-form/sent', component:ContactPageFormSentComponent}
    
    
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent, ContactPageComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent, ContactPageComponent, ContactPageFormSentComponent],
     imports: [
         RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
         HttpClientModule,
@@ -50,6 +53,8 @@ const routes: Routes = [
         InputMaskModule,
         InputTextareaModule,
         MenubarModule,
+        ReactiveFormsModule,
+        FormsModule
         
     ],
 

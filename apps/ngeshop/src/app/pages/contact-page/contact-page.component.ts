@@ -14,7 +14,7 @@ export class ContactPageComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder) { }
 
-  checkoutFormGroup!: FormGroup;
+  contactFormGroup!: FormGroup;
   isSubmitted = false;
 
   ngOnInit(): void {
@@ -24,17 +24,23 @@ export class ContactPageComponent implements OnInit {
   backToCart() {
     this.router.navigate(['/cart']);
 }
-
+  sendReq (){
+    this.isSubmitted = true;
+    if (this.contactFormGroup.invalid) {
+        return;
+    }
+    this.router.navigate(['contact-form/sent'])
+  }
   private _initCheckoutForm() {
-    this.checkoutFormGroup = this.formBuilder.group({
-        name: ['asdf', Validators.required],
-        email: ['asd@asdf', [Validators.email, Validators.required]],
-        phone: ['34605675936'],
+    this.contactFormGroup = this.formBuilder.group({
+        name: ['', Validators.required],
+        email: ['', [Validators.email, Validators.required]],
+        message: ['', Validators.required],
       
     });
 }
-get checkoutForm() {
-  return this.checkoutFormGroup.controls;
+get contactForm() {
+  return this.contactFormGroup.controls;
 }
 
 }
