@@ -13,7 +13,7 @@ import { OrdersService } from '../../services/ordersService';
 export class CartPageComponent implements OnInit {
 
   cartItemDetailed : cartItemDetailed[] = []
-  quantity = 0
+  cartCount = 0
 
   constructor(
     private route : Router,
@@ -26,9 +26,11 @@ export class CartPageComponent implements OnInit {
   ngOnInit(): void {
     this._getCartDetails()
   }
+
   private _getCartDetails(){
     this.cartService.cart$.pipe().subscribe(respCart => {
      this.cartItemDetailed = []
+     this.cartCount = respCart?.items.length ?? 0;
       respCart.items?.forEach(cartItem => {
         this.ordersService.getProduct(cartItem.productId).subscribe((resProduct)=> {
           this.cartItemDetailed.push({

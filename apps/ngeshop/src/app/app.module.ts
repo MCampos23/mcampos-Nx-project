@@ -25,9 +25,11 @@ import {MenubarModule} from 'primeng/menubar';
 
 
 
+
 const routes: Routes = [
     { path: '', component: HomePageComponent },
-    { path: 'contact', component: ContactPageComponent },
+    { path: 'contact', component: ContactPageComponent }
+   
    
 ];
 

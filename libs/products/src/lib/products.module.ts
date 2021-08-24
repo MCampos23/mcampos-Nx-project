@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'category/:categoryId',
     component: ProductsListComponent
+  },
+  {
+    path: 'search/:searchValue',
+    component: ProductsListComponent
   }
 
 ]

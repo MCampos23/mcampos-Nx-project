@@ -14,6 +14,8 @@ export class ProductsListComponent implements OnInit {
     products: Product[] = [];
     categories: Category[] = [];
     isCategoryPage = false;
+    isSearchPage = false;
+    searchValue = ''
 
     constructor(
         private productsService: ProductsService, 
@@ -22,23 +24,35 @@ export class ProductsListComponent implements OnInit {
         ) {}
 
     ngOnInit(): void {
+       
         this.route.params.subscribe((params) => {
             if (params.categoryId) {
                 this.isCategoryPage = true;
                 this._getProducts([params.categoryId]);
-            } else this._getProducts();
+            }else if (params.searchValue){
+                this.searchValue = params.searchValue
+                this.isSearchPage = true;
+                this._getProducts();                
+            }            
+            else this._getProducts();
         });
         this._getCategories();
+        
     }
 
     private _getProducts(categoriesFilter?: string[]) {
         this.productsService.getProducts(categoriesFilter).subscribe((resProducts) => {
             this.products = resProducts;
+            if(this.isSearchPage){
+                this.products = this.products.filter(product => product.name.toLocaleUpperCase().includes(this.searchValue.toLocaleUpperCase()))
+            }
         });
+
     }
     private _getCategories() {
         this.categoriesService.getCategories().subscribe((resCategories) => {
             this.categories = resCategories;
+
         });
     }
     categoryFilter() {

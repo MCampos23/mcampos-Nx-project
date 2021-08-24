@@ -3,9 +3,9 @@
         <div class="p-col-12 p-lg-8">
          
             <div>
-                <h4>Mi carrito: {{ 2 }} Item(s)</h4>
+                <h4>Mi carrito: {{ cartCount }} Item(s)</h4>
             </div>
-            <div class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección de envío.</div>
+            <div class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección.</div>
             <div class="cart-item p-mt-3" *ngFor="let item of cartItemDetailed">
                 <div class="p-grid p-fluid">
                     <div class="p-col-6 p-lg-2 cart-item-image">

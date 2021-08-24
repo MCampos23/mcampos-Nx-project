@@ -1,6 +1,6 @@
 <div class="products-page">
     <div class="p-grid">
-        <div class="p-col-12 p-md-3 p-p-lg-5" *ngIf="categories && !isCategoryPage">
+        <div class="p-col-12 p-md-3 p-p-lg-5" *ngIf="categories && !isCategoryPage && !isSearchPage">
             <h4>Categorías</h4>
             <div class="p-field-checkbox" *ngFor="let category of categories">
                 <p-checkbox 
