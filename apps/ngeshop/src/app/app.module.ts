@@ -24,6 +24,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MenubarModule} from 'primeng/menubar';
 import { ContactPageFormSentComponent } from './pages/contact-page-form-sent/contact-page-form-sent.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductNotFoundComponent } from './pages/product-not-found/product-not-found.component';
 
 
 
@@ -31,13 +32,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
     { path: '', component: HomePageComponent },
     { path: 'contact', component: ContactPageComponent },
-    { path: 'contact-form/sent', component:ContactPageFormSentComponent}
+    { path: 'contact-form/sent', component:ContactPageFormSentComponent},
+    { path: 'product-not-found', component:ProductNotFoundComponent}
    
    
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent, ContactPageComponent, ContactPageFormSentComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent, ContactPageComponent, ContactPageFormSentComponent, ProductNotFoundComponent],
     imports: [
         RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
         HttpClientModule,

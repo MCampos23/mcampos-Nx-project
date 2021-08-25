@@ -3,7 +3,7 @@ import { Category } from '../../models/category';
 import { Product } from '../../models/product';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'mcampos-list',
@@ -20,7 +20,8 @@ export class ProductsListComponent implements OnInit {
     constructor(
         private productsService: ProductsService, 
         private categoriesService: CategoriesService, 
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
         ) {}
 
     ngOnInit(): void {
@@ -45,6 +46,8 @@ export class ProductsListComponent implements OnInit {
             this.products = resProducts;
             if(this.isSearchPage){
                 this.products = this.products.filter(product => product.name.toLocaleUpperCase().includes(this.searchValue.toLocaleUpperCase()))
+             
+                if(this.products.length < 1) this.router.navigate(['/product-not-found'])
             }
         });
 
