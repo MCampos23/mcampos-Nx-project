@@ -5,7 +5,8 @@
             <div>
                 <h4>Mi carrito: {{ cartCount }} Item(s)</h4>
             </div>
-            <div class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección.</div>
+            <div *ngIf="cartCount > 0" class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección.</div>
+            <div *ngIf="cartCount === 0" class="cart-shipping p-mb-5">No has añadido ningún producto a tu carrito.</div>
             <div class="cart-item p-mt-3" *ngFor="let item of cartItemDetailed">
                 <div class="p-grid p-fluid">
                     <div class="p-col-6 p-lg-2 cart-item-image">
@@ -44,7 +45,7 @@
             </div>
         </div>
         
-        <div class="p-lg-4 p-col-12 summary">
+        <div *ngIf="cartCount > 0" class="p-lg-4 p-col-12 summary">
             <orders-order-sumary></orders-order-sumary>
         </div>
     </div>
