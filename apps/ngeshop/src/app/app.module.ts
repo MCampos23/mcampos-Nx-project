@@ -25,9 +25,11 @@ import {MenubarModule} from 'primeng/menubar';
 import { ContactPageFormSentComponent } from './pages/contact-page-form-sent/contact-page-form-sent.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductNotFoundComponent } from './pages/product-not-found/product-not-found.component';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 
-
-
+registerLocaleData(localeEs, 'es');
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },
@@ -60,7 +62,7 @@ const routes: Routes = [
         
     ],
 
-    providers: [MessageService],
+    providers: [MessageService, { provide: LOCALE_ID, useValue: "es" }],
     bootstrap: [AppComponent],
     exports: [
       MessagesComponent
