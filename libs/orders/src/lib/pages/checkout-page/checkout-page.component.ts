@@ -46,7 +46,6 @@ export class CheckoutPageComponent implements OnInit {
 
     private _getCountries() {
         this.countries = this.usersService.getCountries();
-        console.log(this.countries)
     }
 
     private _getCartItems() {
