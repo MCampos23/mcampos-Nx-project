@@ -26,8 +26,8 @@
         "workspace-generator": "nx workspace-generator",
         "dep-graph": "nx dep-graph",
         "help": "nx help",
-        "build-ngeshop":" nx build ngeshop --prod --output-path ../ngeshop --base-href /ngeshop/",
-        "build-admin":" nx build admin --prod --output-path ../admin --base-href /admin/"
+        "build-ngeshop": " nx build ngeshop --prod --output-path ../ngeshop --base-href /ngeshop/",
+        "build-admin": " nx build admin --prod --output-path ../admin --base-href /admin/"
     },
     "private": true,
     "dependencies": {
@@ -43,6 +43,7 @@
         "@nrwl/angular": "12.4.0",
         "animate.css": "^4.1.1",
         "bootstrap": "^5.0.2",
+        "country-list-spanish": "^0.2.1",
         "i18n-iso-countries": "^6.8.0",
         "normalize.css": "^8.0.1",
         "primeflex": "^2.0.0",

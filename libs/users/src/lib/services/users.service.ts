@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { User } from '../models/user';
 import { map } from 'rxjs/operators';
+
+
 import * as countriesLib from 'i18n-iso-countries';
+
 
 declare const require: (arg0: string) => countriesLib.LocaleData;
 
@@ -16,7 +19,7 @@ export class UsersService {
     apiURLUsers = environment.apiURL + 'users';
     constructor(private http: HttpClient) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+        countriesLib.registerLocale(require('i18n-iso-countries/langs/es.json'));
     }
 
     getUsers(): Observable<User[]> {
@@ -40,7 +43,7 @@ export class UsersService {
     }
 
     getCountries(): { id: string; name: string }[] {
-        return Object.entries(countriesLib.getNames('en', { select: 'official' })).map((entry) => {
+        return Object.entries(countriesLib.getNames('es', { select: 'official' })).map((entry) => {
             return {
                 id: entry[0],
                 name: entry[1]
@@ -49,7 +52,7 @@ export class UsersService {
     }
 
     getCountry(countryKey: string): string {
-        return countriesLib.getName(countryKey, 'en');
+        return countriesLib.getName(countryKey, 'es');
     }
 
     getUsersCount(): Observable<any> {
