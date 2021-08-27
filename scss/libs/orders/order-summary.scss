@@ -10,7 +10,9 @@
     margin: 15px 0;
     span {
       display: block;
-      width: 80%;
+      width: 70%;
+      font-size: 0.9em;
+      margin-left: 10px;
 
       &:last-child {
         width: 20%;
@@ -24,6 +26,7 @@
   }
    .checkout-button {
     button {
+      margin-top: 15px;
       width: 100%;
     }
   }

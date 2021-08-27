@@ -2,7 +2,10 @@ header {
     .logo{
         img{
             width: 75px;
-            margin-left: 45px;
+            margin-left: 45px;            
+        }
+        &:hover{
+            cursor: pointer;
         }
     }
     .search,

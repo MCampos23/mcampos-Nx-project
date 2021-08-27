@@ -15,14 +15,14 @@
                             [attr.alt]="item.product.name"
                         />
                     </div>
-                    <div class="p-col-6 p-lg-7">
+                    <div class="p-col-6 p-lg-7 p-p-3">
                         <div class="cart-item-name">{{ item.product.name }}</div>
                         <div class="cart-item-price">{{ item.product.price |currency:'EUR'}}</div>
                         <div class="cart-item-remove">
                             <p-button icon="pi pi-trash" (onClick)="deleteCartItem(item)"></p-button>
                         </div>
                     </div>
-                    <div class="p-colo-12 p-lg-3">
+                    <div class="p-colo-12 p-lg-3 p-p-2">
                         <div class="product-quantity">
                             <div class="p-field">
                                 <p-inputNumber 
