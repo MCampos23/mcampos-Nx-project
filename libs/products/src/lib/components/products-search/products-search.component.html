@@ -1,5 +1,5 @@
 <div class="products-search">
-    <input type="text" placeholder="Busca un producto" class="products-search-input" name="search" id="search" #search />
+    <input (keydown.enter)="searchProduct(search.value)" type="text" placeholder="Busca un producto" class="products-search-input" name="search" id="search" #search />
     <button (click)="searchProduct(search.value)" class="search-button">
         <i class="pi pi-search"></i>
     </button>

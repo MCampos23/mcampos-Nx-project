@@ -7,7 +7,7 @@
             <div class="p-col-6 p-p-6">
                 <h3>¡Bienvenid@!</h3>
                 <h2>Página de login</h2>
-                <form [formGroup]="loginFormGroup">
+                <form (keydown.enter)="onSubmit()" [formGroup]="loginFormGroup">
                     <div class="p-grid p-mt-6">
                         <div class="p-col-12">
                             <div class="p-inputgroup p-mb-3">

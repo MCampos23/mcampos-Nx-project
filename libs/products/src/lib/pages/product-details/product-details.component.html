@@ -9,7 +9,7 @@
             {{ product.description }}
         </p>
         <div class="product-rating">
-            <p-rating [(ngModel)]="product.rating" [cancel]="false" readonly="true"></p-rating>
+            <p-rating [(ngModel)]="product.rating" [cancel]="false" [readonly]="true"></p-rating>
         </div>
         <div class="product-price">
             {{ product.price |currency:'EUR'}}
