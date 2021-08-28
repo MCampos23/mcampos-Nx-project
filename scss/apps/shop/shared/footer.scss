@@ -2,7 +2,13 @@
     margin-top: 50px;
     background-color: #F0E8DE;
     min-height: 83px;
-    
+    a{
+        color: $primary-color;
+        opacity: 0.6;
+    &:hover{
+        opacity: 1;
+    }
+}
 
     .copy-text{
        margin-top: 25px;
