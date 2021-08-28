@@ -6,7 +6,7 @@
                 <h4>Mi carrito: {{ cartCount }} Item(s)</h4>
             </div>
             <div *ngIf="cartCount > 0" class="cart-shipping p-mb-5">El coste de envío puede variar dependiendo de la dirección.</div>
-            <div *ngIf="cartCount === 0" class="cart-shipping p-mb-5">No has añadido ningún producto a tu carrito.</div>
+            <div *ngIf="cartCount === 0" class="cart-shipping p-mb-5">No hay ningún producto en tu carrito.</div>
             <div class="cart-item p-mt-3" *ngFor="let item of cartItemDetailed">
                 <div class="p-grid p-fluid">
                     <div class="p-col-6 p-lg-2 cart-item-image">
@@ -29,6 +29,7 @@
                                 [(ngModel)]="item.quantity"
                                 [inputId]="item.product.id" 
                                 mode="decimal" 
+                                disabled
                                 [min]="1" 
                                 [max]="100" 
                                 [showButtons]="true"

@@ -14,11 +14,13 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.cart$.subscribe(() => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Carrito actualizado',
-        detail: 'Carrito actualizado con éxito'
-      });
+      if(this.cartService.cart$.value.items.length > 0){
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Carrito actualizado',
+          detail: 'Carrito actualizado con éxito'
+        });
+      }
     });
   }
 
