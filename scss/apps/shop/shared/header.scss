@@ -36,3 +36,25 @@ header {
     }
 
 }
+@media (max-width:450px){
+    header {
+        .logo{
+            img{
+                width: 35px;
+                margin-left: -2.5px;
+            }
+        }
+        .products-search{
+            width: 120px;
+            font-size: 9px;
+        }
+        .search,
+        .tools{
+            padding-top: 12px;
+        }
+        .navigation{
+            padding-top: 30px;
+        }
+    }
+
+}

@@ -46,3 +46,18 @@
             }
     }
 }
+@media (max-width:450px){
+    .products-search {    
+        &-input {
+            margin-left: 8px;
+        }
+        button{
+            margin-left: -35px;
+            width: 35px;
+            }
+        .pi{
+            margin-left: -3px;
+            
+        }
+    }
+}

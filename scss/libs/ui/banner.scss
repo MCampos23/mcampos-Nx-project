@@ -67,3 +67,31 @@
     }
 
 }
+@media (max-width:350px){
+    .banner {
+        height: 230px;
+            
+        &-text {
+            color: var(--surface-700);
+            margin-top: 25px;
+    
+            h1 {
+               font-size: 1.7em;                
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+        }
+       
+        &-button {
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+        img{
+            width: 100px;
+            margin-top: 15px;
+            
+        }
+    }
+
+}
