@@ -1,5 +1,4 @@
 .product {
-    
     padding: 0 35px;
     &-page {
         margin-top: 25px;
@@ -30,7 +29,6 @@
             text-decoration: line-through;
         }
     }
-
     &-quantity {
         margin: 25px 0;
 
@@ -56,13 +54,79 @@
         }
     }
 }
-
 .product-rich-description {
     padding: 0 10px;
     line-height: 1.6;
-   li{
-    list-style: disc;
-    margin-left: 25px;
-   }
-    
+    li {
+        list-style: disc;
+        margin-left: 25px;
+    }
+}
+@media (max-width: 450px) {
+    .product {
+        padding: 0 35px;
+        &-page {
+            margin-top: 25px;
+        }
+        &-name {
+            font-size: 1.8em;
+        }
+
+        &-description {
+            font-size: 1em;
+        }
+
+        &-rating {
+            margin: 15px 0;
+        }
+
+        &-price {
+            font-size: 1.6em;
+            font-weight: 600;
+            border-bottom: 1px solid var(--surface-300);
+            padding: 25px 0px;
+
+            .price-before {
+                font-size: 0.7em;
+                margin-left: 10px;
+                font-weight: 200;
+                color: var(--surface-500);
+                text-decoration: line-through;
+            }
+        }
+        &-quantity {
+            margin: 25px 0;
+
+            label {
+                font-size: 1em;
+            }
+
+            .p-button {
+                background-color: $primary-color;
+                border: 0;
+                &:hover {
+                    background-color: $primary-color-dark;
+                }
+            }
+        }
+        &-actions {
+            .p-button {
+                background-color: $primary-color;
+                border: 0;
+                width: 250px;
+                margin-bottom: 10px;
+                &:hover {
+                    background-color: $primary-color-dark;
+                }
+            }
+        }
+    }
+    .product-rich-description {
+        padding: 0 10px;
+        line-height: 1.6;
+        li {
+            list-style: disc;
+            margin-left: 25px;
+        }
+    }
 }
