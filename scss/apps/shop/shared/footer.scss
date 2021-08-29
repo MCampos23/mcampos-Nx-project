@@ -26,3 +26,23 @@
         }
     }
 }
+@media (max-width:380px){
+    .footer{
+        margin: -25px;
+        margin-top: 50px;
+        .copy-text{
+            padding-left: 40px;
+            font-size: 0.65em
+         }
+         .social-icons{
+            text-align: right;
+            padding-right: 20px;
+            margin-top: 10px;
+    
+            .pi{
+                font-size: 1.6em;
+                margin: 8px;
+            }
+        }
+    }
+}

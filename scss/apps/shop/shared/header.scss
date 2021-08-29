@@ -40,20 +40,27 @@ header {
     header {
         .logo{
             img{
+                
                 width: 35px;
                 margin-left: -2.5px;
             }
         }
         .products-search{
-            width: 120px;
-            font-size: 9px;
+            margin-left: -15px;
+            width: 220px;
+            font-size: 12px;
         }
-        .search,
-        .tools{
-            padding-top: 12px;
-        }
+     .search {
+         margin-top: 50px;
+     }
+       
         .navigation{
             padding-top: 30px;
+            margin-left: 10px;
+        }
+        a{
+            margin-left: 12px;
+            margin-top:15px;
         }
     }
 
