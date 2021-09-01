@@ -30,7 +30,7 @@
                         </div>
                         <div class="p-field p-col">
                             <label for="price">Precio</label><br>
-                            <p-inputNumber formControlName="price" mode="decimal" inputId="price" [useGrouping]="false">
+                            <p-inputNumber formControlName="price" mode="currency" currency="EUR" locale="es-ES" inputId="price" [useGrouping]="false">
                             </p-inputNumber>
                             <small *ngIf="productForm.price.invalid && isSubmitted" class="p-error">El precio es obligatorio</small>
                         </div>

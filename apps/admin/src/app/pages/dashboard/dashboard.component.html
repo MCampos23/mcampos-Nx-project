@@ -3,7 +3,7 @@
         <div class="p-grid">
             <div class="p-col-3">
                 <p-card styleClass="d-orders">
-                    <div class="d-item">
+                    <div routerLink="/orders" class="d-item">
                         <div>
                             <i class="pi pi-shopping-cart"></i><br>
                             <span class="name">Pedidos</span>
@@ -14,7 +14,7 @@
             </div>
             <div class="p-col-3">
                 <p-card styleClass="d-products">
-                    <div class="d-item">
+                    <div routerLink="/products" class="d-item">
                         <div>
                             <i class="pi pi-briefcase"></i><br>
                             <span class="name">Productos</span>
@@ -25,7 +25,7 @@
             </div>
             <div class="p-col-3">
                 <p-card styleClass="d-users">
-                    <div class="d-item">
+                    <div routerLink="/users" class="d-item">
                         <div>
                             <i class="pi pi-users"></i><br>
                             <span class="name">Usuarios</span>
@@ -41,7 +41,7 @@
                             <i class="pi pi-euro"></i><br>
                             <span class="name">Ventas</span>
                         </div>
-                            <span class="number">{{ statistics[3] }}€</span>
+                            <span class="number">{{ statistics[3] | currency: 'EURpad'}}</span>
                     </div>
                 </p-card>
             </div>

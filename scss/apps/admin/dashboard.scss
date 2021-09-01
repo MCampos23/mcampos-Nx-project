@@ -3,7 +3,6 @@
     text-align: center;
     color: var(--surface-0);
     justify-content: space-between;
-  
 
     .pi {
         font-size: 4em;
@@ -21,20 +20,28 @@
     }
 }
 .d-orders {
-  
     background: #d1913c; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #ffd194, #d1913c); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #ffd194, #d1913c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    &:hover {
+        cursor: pointer;
+    }
 }
 .d-products {
     background: #283048; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #859398, #283048); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #859398, #283048); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    &:hover {
+        cursor: pointer;
+    }
 }
 .d-users {
     background: #085078; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #85d8ce, #085078); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #85d8ce, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    &:hover {
+        cursor: pointer;
+    }
 }
 .d-totalsales {
     background: #4776e6; /* fallback for old browsers */

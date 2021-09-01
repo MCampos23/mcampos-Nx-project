@@ -25,7 +25,7 @@
                 </div>
                 <div class="p-col-4">
                     <h5>Precio total:</h5>
-                    <p>{{ order.totalPrice }} €</p>
+                    <p>{{ order.totalPrice | currency: 'EUR' }}</p>
                 </div>
                
             </div>
@@ -62,19 +62,19 @@
                     {{ orderItem.product!.category!.name }}
                 </div>
                 <div class="p-col-2 p-mb-4">
-                    {{ orderItem.product!.price }} €
+                    {{ orderItem.product!.price | currency: 'EUR'}} 
                 </div>
                 <div class="p-col-2 p-mb-4">
                     {{ orderItem.quantity }}
                 </div>
                 <div class="p-col-2  p-mb-4">
-                    {{ orderItem.product!.price! * orderItem.quantity! }} €
+                    {{ orderItem.product!.price! * orderItem.quantity! | currency: 'EUR' }} 
                 </div>
             </div>
             <hr class=" p-mb-4">
             <div class="p-grid" style="color: green;">
                 <div class="p-col-2 p-offset-8 p-text-bold">Importe total:</div>
-                <div class="p-col-2 p-text-bold">{{ order.totalPrice}} €</div>
+                <div class="p-col-2 p-text-bold">{{ order.totalPrice  | currency: 'EUR'}} </div>
             </div>
         </p-fieldset>
         <p-fieldset styleClass="p-mb-4" legend="Dirección del pedido" [toggleable]="true">

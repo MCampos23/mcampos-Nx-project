@@ -37,6 +37,11 @@ import { OrderDetailsComponent } from './pages/orders/order-details/order-detail
 import { TagModule } from 'primeng/tag';
 import { FieldsetModule } from 'primeng/fieldset';
 import { AppRoutingModule } from './app-routing.module';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs, 'es');
 
 const UX_MODULE = [
     FieldsetModule,
@@ -82,7 +87,7 @@ const UX_MODULE = [
         UX_MODULE,
         AppRoutingModule,
     ],
-    providers: [CategoriesService, MessageService, ConfirmationService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+    providers: [CategoriesService, MessageService, ConfirmationService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },  { provide: LOCALE_ID, useValue: "es" }],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
