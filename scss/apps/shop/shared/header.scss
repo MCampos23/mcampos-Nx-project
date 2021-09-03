@@ -12,6 +12,10 @@ header {
     .navigation,
     .tools {
         padding-top:45px;
+        
+    }
+    .pi-user{
+        font-size: 1.8em;
     }
 }
 @media (max-width:768px){
@@ -33,6 +37,9 @@ header {
         .navigation{
             padding-top: 30px;
         }
+    }
+    .pi-user{
+        font-size: 1.6em !important;
     }
 
 }
@@ -62,6 +69,9 @@ header {
             margin-left: 12px;
             margin-top:15px;
         }
+    }
+    .pi-user{
+        font-size: 1.3em !important;
     }
 
 }

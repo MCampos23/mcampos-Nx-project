@@ -1,0 +1,13 @@
+.pi-shopping-cart{
+    font-size: 1.8em;
+}
+@media(max-width: 768px){
+    .pi-shopping-cart{
+        font-size: 1.6em !important;
+    }
+}
+@media(max-width: 450px){
+    .pi-shopping-cart{
+        font-size: 1.3em !important;
+    }
+}
