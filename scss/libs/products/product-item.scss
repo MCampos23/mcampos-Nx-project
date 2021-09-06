@@ -12,9 +12,11 @@
     }
 
     .image {
-        width: 60%;
-        height: 150px;
-        margin-top: -100px;
+        width: auto;
+        height: auto;
+        max-width: 85%;
+        max-height: 150px;
+        margin-top: -120px;
     }
 
     .name {
