@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -28,6 +27,7 @@ import { ProductNotFoundComponent } from './pages/product-not-found/product-not-
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { NgxLoadingModule } from 'ngx-loading';
 
 registerLocaleData(localeEs, 'es');
 
@@ -58,8 +58,8 @@ const routes: Routes = [
         InputTextareaModule,
         MenubarModule,
         ReactiveFormsModule,
-        FormsModule
-        
+        FormsModule,
+        NgxLoadingModule.forRoot({})        
     ],
 
     providers: [MessageService, { provide: LOCALE_ID, useValue: "es" }],

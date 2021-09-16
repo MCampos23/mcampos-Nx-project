@@ -5,28 +5,35 @@ import { Category } from '../../models/category';
 import { CategoriesService } from '../../services/categories.service';
 
 @Component({
-  selector: 'mcampos-categories-banner',
-  templateUrl: './categories-banner.component.html',
-  styles: [
-  ]
+    selector: 'mcampos-categories-banner',
+    templateUrl: './categories-banner.component.html',
+    styles: []
 })
 export class CategoriesBannerComponent implements OnInit, OnDestroy {
+    public loading = false;
+    categories!: Category[];
+    endSubs$: Subject<any> = new Subject();
+    constructor(private categoriesService: CategoriesService) {}
 
-  categories!: Category[]
-  endSubs$: Subject<any> = new Subject()
-  constructor(private categoriesService: CategoriesService) { }
+    ngOnInit(): void {
+        this.loading = true;       
+        this. _getCategories()
+      }
+      
+      private _getCategories(){
+        
+        this.categoriesService
+            .getCategories()
+            .pipe(takeUntil(this.endSubs$))
+            .subscribe((categories) => {
+                this.loading = false;
+                this.categories = categories;
+            });
 
-  ngOnInit(): void {
-    this.categoriesService
-      .getCategories()
-      .pipe(takeUntil(this.endSubs$))
-      .subscribe(categories => {
-      this.categories = categories;
-    })
-  }
-
-  ngOnDestroy() {
-    this.endSubs$.next();
-    this.endSubs$.complete();
-  }
+      }
+     
+    ngOnDestroy() {
+        this.endSubs$.next();
+        this.endSubs$.complete();
+    }
 }
