@@ -1,28 +1,16 @@
+<div *ngIf="categories" class="categories-banner">
+    <h3>Categorías</h3>
 
-    <div *ngIf="categories" class="categories-banner">
-        <h3>Categorías</h3>
-        <div class="my-container">
-            <ng-template #customLoadingTemplate>
-                
-                
-                
-                
-            </ng-template>
-            
-            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
-            <div class="p-grid">
-                <div class="p-col-12 p-sm-6 p-md-4 p-lg-2" *ngFor="let category of categories">
-                    <div class="category" [routerLink]="'/category/'+ category.id"
-                    style="background-color: {{category.color}}">
-                        <div class="category-icon">
-                            <i class="pi pi-{{category.icon}}"></i>
-                        </div>
-                        <div class="category-name">
-                           {{ category.name }}
-                        </div>
-                    </div>
+    <div class="p-grid">
+        <div class="p-col-12 p-sm-6 p-md-4 p-lg-2" *ngFor="let category of categories">
+            <div class="category" [routerLink]="'/category/' + category.id" style="background-color: {{ category.color }}">
+                <div class="category-icon">
+                    <i class="pi pi-{{ category.icon }}"></i>
+                </div>
+                <div class="category-name">
+                    {{ category.name }}
                 </div>
             </div>
-    
+        </div>
     </div>
 </div>
