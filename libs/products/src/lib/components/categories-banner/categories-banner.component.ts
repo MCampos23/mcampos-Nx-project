@@ -18,6 +18,7 @@ export class CategoriesBannerComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.loading = true;       
         this. _getCategories()
+        console.log(this.loading)
       }
       
       private _getCategories(){
@@ -28,6 +29,7 @@ export class CategoriesBannerComponent implements OnInit, OnDestroy {
             .subscribe((categories) => {
                 this.loading = false;
                 this.categories = categories;
+                console.log(this.loading)
             });
 
       }
