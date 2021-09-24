@@ -34,4 +34,10 @@
             
         }
     }
+    .p-progressbar-indeterminate .p-progressbar-value:before {
+        background-color: #ff3a00;
+    }
+    .p-progressbar-indeterminate .p-progressbar-value:after {
+        background-color: #ff3a00;
+    }
 }
