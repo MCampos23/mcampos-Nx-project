@@ -13,6 +13,8 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import {RatingModule} from 'primeng/rating';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { UiModule } from '@mcampos/ui';
+import {ProgressBarModule} from 'primeng/progressbar';
+
 
 
 
@@ -37,7 +39,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [UiModule, FormsModule, CheckboxModule, CommonModule, RouterModule.forChild(routes), ButtonModule, RatingModule, InputNumberModule],
+    imports: [UiModule, FormsModule, CheckboxModule, CommonModule, RouterModule.forChild(routes), ButtonModule, RatingModule, InputNumberModule, ProgressBarModule],
     declarations: [
       ProductsSearchComponent,
       CategoriesBannerComponent,

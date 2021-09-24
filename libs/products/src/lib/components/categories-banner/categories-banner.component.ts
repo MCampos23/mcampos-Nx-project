@@ -10,15 +10,14 @@ import { CategoriesService } from '../../services/categories.service';
     styles: []
 })
 export class CategoriesBannerComponent implements OnInit, OnDestroy {
-    public loading = false;
+
     categories!: Category[];
     endSubs$: Subject<any> = new Subject();
     constructor(private categoriesService: CategoriesService) {}
 
     ngOnInit(): void {
-        this.loading = true;       
+    
         this. _getCategories()
-        console.log(this.loading)
       }
       
       private _getCategories(){
@@ -27,9 +26,8 @@ export class CategoriesBannerComponent implements OnInit, OnDestroy {
             .getCategories()
             .pipe(takeUntil(this.endSubs$))
             .subscribe((categories) => {
-                this.loading = false;
+              
                 this.categories = categories;
-                console.log(this.loading)
             });
 
       }

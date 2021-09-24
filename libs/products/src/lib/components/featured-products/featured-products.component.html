@@ -1,6 +1,7 @@
-<div *ngIf="featuredProducts" class="featured-products">
+<div class="featured-products">
     <h3>Productos destacados</h3>
-    <div class="p-grid">
+    <p-progressBar *ngIf="!featuredProducts" mode="indeterminate" [style]="{'height': '6px','background-color': '#ff3c0078'}"></p-progressBar>
+    <div *ngIf="featuredProducts" class="p-grid">
         <div class="p-col-12 p-sm-6 p-md-4 p-lg-3" *ngFor="let product of featuredProducts">
             <mcampos-product-item [product]="product"></mcampos-product-item>
         </div>
