@@ -26,8 +26,9 @@
         "workspace-generator": "nx workspace-generator",
         "dep-graph": "nx dep-graph",
         "help": "nx help",
-        "build-ngeshop": " nx build ngeshop --prod --output-path ../ngeshop --base-href /ngeshop/",
-        "build-admin": " nx build admin --prod --output-path ../admin --base-href /admin/"
+        "build-ngeshop": " nx build ngeshop --output-path ../ngeshop --base-href /ngeshop/",
+        "build-ngeshop-test": " nx build ngeshop --output-path ../ngeshop-test --base-href /ngeshop/",
+        "build-admin": " nx build admin --output-path ../admin --base-href /admin/"
     },
     "private": true,
     "dependencies": {
