@@ -10,28 +10,23 @@ import { CategoriesService } from '../../services/categories.service';
     styles: []
 })
 export class CategoriesBannerComponent implements OnInit, OnDestroy {
-
     categories!: Category[];
     endSubs$: Subject<any> = new Subject();
     constructor(private categoriesService: CategoriesService) {}
 
     ngOnInit(): void {
-    
-        this. _getCategories()
-      }
-      
-      private _getCategories(){
-        
+        this._getCategories();
+    }
+
+    private _getCategories() {
         this.categoriesService
             .getCategories()
             .pipe(takeUntil(this.endSubs$))
             .subscribe((categories) => {
-              
                 this.categories = categories;
             });
+    }
 
-      }
-     
     ngOnDestroy() {
         this.endSubs$.next();
         this.endSubs$.complete();
